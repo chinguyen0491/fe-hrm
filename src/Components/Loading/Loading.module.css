@@ -1,0 +1,9 @@
+.modal__loading {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    background-color: #fff;
+}
