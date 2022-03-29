@@ -2,8 +2,8 @@ import React,{useState} from "react";
 import styles from './Recruit.module.css'
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
-import Banner from "../../Components/Banner/Banner";
-import banner from "../../assets/image/bannerFAQ.jpg";
+import BannerNoAction from "../../Components/Banner/BannerNoAction";
+import banner from "../../assets/image/banner-04.jpg";
 import Tabs from "./Tabs";
 import LineInfor from "./LineInfor";
 import {  SelectPicker } from "rsuite";
@@ -160,7 +160,7 @@ function Index() {
   return (
     <>
       <Header />
-      <Banner image={banner} />
+      <BannerNoAction image={banner} />
       <div className="container pt-5">
         <div className="row">
           <div className="col-sm-4">
