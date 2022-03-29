@@ -1,5 +1,4 @@
 import React from 'react';
-
 import axios from 'axios';
 
 export default class PersonList extends React.Component {
@@ -8,12 +7,11 @@ export default class PersonList extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://localhost:15000/api/v1/districts`)
+    axios.get(`https://jsonplaceholder.typicode.com/users`)
       .then(res => {
         const persons = res.data;
         this.setState({ persons });
       })
-      .catch(error => console.log(error));
   }
 
   render() {
