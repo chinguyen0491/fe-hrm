@@ -48,7 +48,7 @@ function Index() {
       deadline: "20/04/2022",
       status: "Hot",
       link: "/",
-      category:"Nhân sự"
+      category:"nhan-su"
     },
     {
       title: "Cộng Tác Viên Giao Hàng khối kinh doanh",
@@ -169,7 +169,7 @@ function Index() {
           <div className="col-sm-8">
             <div className={`d-flex justify-content-between align-items-center ps-5 pe-4 py-3 ${styles.containerHeader}`}>
               <div className={`d-flex justify-content-start align-items-center ${styles.containerHeaderLeft}`}>
-                <p className='me-3'>Có <strong>10</strong> việc làm</p>
+                <p className='me-3'>Có <strong>{dataHandle.length}</strong> việc làm</p>
                 <SelectPicker
               onClean={() => {setCategoryJob("")}}
               onSelect={(e) => {setCategoryJob(e)}}
