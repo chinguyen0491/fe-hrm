@@ -3,34 +3,29 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails'; 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import styles from './FAQ.module.css'
 export default function SimpleAccordion() {
   const data = [
     {
-      q:"Thông tin về công ty",
+      q:"Việc làm Khối văn phòng",
       a:"",
     },
     {
-      q:"Quy trình phỏng vấn",
+      q:"Việc làm Khối sản xuất",
       a:"",
     },
     {
-      q:"Chính sách phúc lợi",
+      q:"Việc làm Khối kinh doanh",
       a:"",
     },
     {
-      q:"Hỗ trợ nhân sự",
-      a:"",
-    },
-    {
-      q:"Tìm việc",
+      q:"Việc làm theo vị trí",
       a:"",
     } 
   ];
   return (
-    <div className={styles.accordion}>
+    <div className={'recruit position-sticky'} style={{top:'0'}}>
       {data.map((ele,index) => {
-        return <Accordion key={index}>
+        return <Accordion  key={index}>
         <AccordionSummary 
          expandIcon={<ExpandMoreIcon sx={{ color: '#f47d20'}}/>}
          aria-controls={`panel${index}a-content`}
