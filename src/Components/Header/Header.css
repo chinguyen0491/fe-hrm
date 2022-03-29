@@ -158,7 +158,7 @@
     border-radius: 25px;
     background: var(--primary);
     background: -webkit-linear-gradient(left, var(--primary) 0%, #fb8bb0 100%);
-    background: linear-gradient(to right, var(--primary) 0%, #fb8bb0 100%);
+    background: linear-gradient(to right, var(--darkred) 0%, var(--lightred) 100%);
   }
   .btn-header {
     padding:10px 30px 15px;
