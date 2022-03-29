@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./FAQ.module.css";
 import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer"
+import Footer from "../../Components/Footer/Footer";
 import Banner from "../../Components/Banner/Banner";
-import Accordition from './QuestionDemo'
+import Accordition from "./QuestionDemo";
 import banner from "../../assets/image/bannerFAQ.jpg";
 import Card from "./Card";
 function index() {
@@ -53,12 +53,17 @@ function index() {
           />
         </div>
       </div>
-      <h3 className="text-center title" style={{marginTop:'100px'}}>Hãy xem chúng tôi có thể giúp gì cho bạn</h3>
-      <div className="container" style={{maxWidth:'50vw', marginTop: '35px'}}>
+      <h3 className="text-center title" style={{ marginTop: "100px" }}>
+        Hãy xem chúng tôi có thể giúp gì cho bạn
+      </h3>
+      <div
+        className="container"
+        style={{ maxWidth: "50vw", marginTop: "35px" }}
+      >
         <Accordition />
       </div>
       <div className="mt-5">
-      <Footer />
+        <Footer />
       </div>
     </>
   );
