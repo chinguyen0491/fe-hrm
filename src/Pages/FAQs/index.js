@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./FAQ.module.css";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
-import Banner from "../../Components/Banner/Banner";
+import BannerNoAction from "../../Components/Banner/BannerNoAction";
 import Accordition from "./QuestionDemo";
 import banner from "../../assets/image/bannerFAQ.jpg";
 import Card from "./Card";
@@ -10,7 +10,7 @@ function index() {
   return (
     <>
       <Header />
-      <Banner image={banner} />
+      <BannerNoAction image={banner} />
       <div className="position-relative">
         <div
           className={`position-absolute w-100 d-flex justify-content-center align-items-center ${styles.cardBanner}`}
