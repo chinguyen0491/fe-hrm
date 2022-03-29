@@ -1,38 +1,85 @@
-import React from 'react'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-import Banner1 from '../Banner/Banner1'
-import styles from './Header.module.css'
-
-function Header() {
-    return <>
-        <header className={styles.grid}>
-            <Link className={styles.logo} to="/">
-                <img src="images/logo.png" alt="Logo Diligo" />
+import "./Header.css";
+import CanvaMenu from "./CanvaMenu";
+import { NavLink,Link } from "react-router-dom";
+import logo from '../../assets/image/logo.png';
+function HeaderSeconds() {
+  return (
+    <>
+      <header className="header-default">
+        <nav className="navbar navbar-expand-lg">
+          <div className="container-xl">
+            {/* site logo */}
+            <Link className="navbar-brand" to="/">
+              <img src={logo} alt="logo" />
             </Link>
-            <div className={styles.wrap}>
-                <ul className={styles.nav}>
-                    <li className={styles.nav__item}>
-                        <Link to="/" className={styles.nav__link}>
-                            Trang chủ
-                        </Link>
-                    </li>
-                    <li className={styles.nav__item}>
-                        <Link to="/tuyen-dung" className={styles.nav__link}>
-                            Tuyển dụng
-                        </Link>
-                    </li>
-                    <li className={styles.nav__item}>
-                        <Link to="/hoi-dap" className={styles.nav__link}>
-                            Hỏi đáp
-                        </Link>
-                    </li>
-                </ul>
-                <Link to="/login" className={styles.login__btn}>
-                    Đăng nhập
-                </Link>
+            <div className="collapse navbar-collapse"> 
+              <ul className="navbar-nav mr-auto">
+                <li className="nav-item dropdown">
+                  <NavLink exact activeClassName="active-navbar" className="nav-link" to="/">
+                    Trang chủ
+                  </NavLink> 
+                </li>
+                <li className="nav-item ">
+                  <NavLink activeClassName="active-navbar" className="nav-link" to="/tuyen-dung">
+                   Tuyển dụng
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink activeClassName="active-navbar" className="nav-link" to="/hoi-dap">
+                    Hỏi đáp
+                  </NavLink>
+                </li> 
+              </ul>
             </div>
-        </header>
+            {/* header right section */}
+            <div className="header-right">
+              {/* social icons */}
+
+              {/* header buttons */}
+              <div className="header-buttons">
+                <ul className="media-button" style={{ margin: "0px" }}>
+                  <li className="d-block d-md-none">
+                    <button
+                      className="slideRightMenu burger-menu icon-button ms-2 float-end float-md-none"
+                      aria-label="Burger"
+                    >
+                      <svg
+                        fill="var(--main-color-content)"
+                        height="20px"
+                        viewBox="0 -53 384 384"
+                        width="20px"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+                        <path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+                        <path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+                      </svg>
+                    </button>
+                  </li>
+                  <li className="d-block d-md-none">
+                    <NavLink activeClassName="active-navbar" to='/login'>
+                    <button
+                      className="burger-menu icon-button ms-2 float-end float-md-none"
+                      aria-label="Burger"
+                    >
+                     <svg viewBox="0 0 24 24" width={24} height={24} stroke="var(--main-color-content)" strokeWidth={2} fill="var(--main-color-content)" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx={12} cy={7} r={4} /></svg>
+                    </button>
+                    </NavLink>
+                  </li>
+                  <li  className="d-none d-md-block">
+                    <NavLink activeClassName="active-navbar" to="/login" className="btn-header mt-0">
+                      Đăng nhập
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <CanvaMenu />
     </>
+  );
 }
 
-export default Header
+export default HeaderSeconds;
