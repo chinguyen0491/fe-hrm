@@ -4,7 +4,7 @@
 
 /*=========================================== VARIABLE=========================================== */
 :root {
-  --primary: #f57c1f;
+  --primary: #b90943;
   --primary-txt: #353535;
 }
 
@@ -35,4 +35,32 @@ input {
 html {
   font-family: 'Roboto', serif;
   color: var(--primary-txt);
+}
+.title {
+  font-size: 2rem;
+  color:var( --primary-txt);
+  font-weight: 700;
+  font-family: sans-serif;
+}
+.MuiAccordion-gutters {
+  box-shadow: none !important;
+}
+.MuiButtonBase-root {
+  overflow: hidden;
+}
+
+.MuiPaper-root + .MuiPaper-root {
+  margin-top: 32px;
+}
+
+.MuiButtonBase-root::after {
+  content: "";
+  display: block;
+  padding: 100px;
+  background-color:#f47d20;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-90%, -50%) ;
+  border-radius: 50%;
 }

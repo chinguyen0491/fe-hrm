@@ -1,8 +1,8 @@
 import React from 'react'
-
+import Header from '../../Components/Header/Header'
 function index() {
   return (
-    <div>Recruit</div>
+    <><Header /></>
   )
 }
 

@@ -3,7 +3,8 @@ import styles from './Footer.module.css'
 
 function Footer() {
     return (
-        <footer className={styles.main}>
+        <footer className={`${styles.main}`}>
+            <div className='container '>
             <div className={styles.footer__title}>
                 <h3>
                     Công ty cổ phần diligo holdings
@@ -69,6 +70,7 @@ function Footer() {
                         </li>
                     </ul>
                 </div>
+            </div>
             </div>
         </footer>
     )
