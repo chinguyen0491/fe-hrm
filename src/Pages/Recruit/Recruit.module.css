@@ -1,0 +1,13 @@
+.container {
+    border-bottom: 1px solid #a3a4a8;
+}
+.tag {
+    padding: 4px 18px 5px;
+    background-color: #ed1b24;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 29px;
+}
+.title {
+    font-weight: 700;
+}

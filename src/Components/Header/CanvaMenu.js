@@ -21,21 +21,10 @@ function CanvaMenu() {
           <nav>
             <ul className="vertical-menu">
               <li>
-                <Link to="/">Trang chủ</Link> 
-                {/* <ul className="submenu">
-                  <li><Link to="/course">Khóa học</Link></li>
-                  <li><Link to="/citrine-product-student">Sản phẩm học viên</Link></li>
-                  <li><Link to="/blog">Tin tức & Sự kiện</Link></li>
-                  <li><Link to="/database">Database</Link></li>
-                  <li><Link to="/feedback">Nhận xét</Link></li>
-                </ul> */}
+                <Link to="/">Trang chủ</Link>  
               </li>
-              <li><Link to="/course">Khóa học</Link></li>
-                  <li className="active"><Link to="/citrine-product-student">Sản phẩm học viên</Link></li>
-              <li>
-                <Link to="/blog">Tin tức & Sự kiện</Link> 
-              </li>
-              <li><Link to="/feedback">Nhận xét</Link></li>
+              <li><Link to="/course">Tuyển dụng</Link></li> 
+              <li><Link to="/feedback">Hỏi đáp</Link></li>
             </ul>
           </nav>
           {/* social icons */} 

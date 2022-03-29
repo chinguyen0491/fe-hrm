@@ -21,6 +21,7 @@ function Footer() {
                         Điện thoại Export: (+84) 24 3795 5333/210
                     </p>
                     <iframe
+                    title="Address"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.2117974956454!2d105.79698501744384!3d21.064201399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b9f9340473%3A0xa6ebff8409bf4b29!2sDILIGO%20HOLDINGS%20-%20Head%20Office!5e0!3m2!1svi!2s!4v1648455231948!5m2!1svi!2s"
                         width="335"
                         height="230"
@@ -46,25 +47,25 @@ function Footer() {
                     <ul className={styles.social__list}>
                         <li className={styles.social__item}>
                             <p>Website</p>
-                            <a href="#" className={styles.social__link}>
+                            <a href="/" className={styles.social__link}>
                                 <i className="fa-brands fa-dribbble"></i>
                             </a>
                         </li>
                         <li className={styles.social__item}>
                             <p>Facebook</p>
-                            <a href="#" className={styles.social__link}>
+                            <a href="/" className={styles.social__link}>
                                 <i className="fa-brands fa-facebook"></i>
                             </a>
                         </li>
                         <li className={styles.social__item}>
                             <p>Linkedin</p>
-                            <a href="#" className={styles.social__link}>
+                            <a href="/" className={styles.social__link}>
                                 <i className="fa-brands fa-linkedin-in"></i>
                             </a>
                         </li>
                         <li className={styles.social__item}>
                             <p>Youtube</p>
-                            <a href="#" className={styles.social__link}>
+                            <a href="/" className={styles.social__link}>
                                 <i className="fa-brands fa-youtube"></i>
                             </a>
                         </li>

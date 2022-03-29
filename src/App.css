@@ -1,7 +1,6 @@
 /* ========================================= IMPORT FONT ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-
+@import "~rsuite/dist/rsuite.min.css";
 /*=========================================== VARIABLE=========================================== */
 :root {
   --primary: #b90943;
@@ -36,6 +35,25 @@ html {
   font-family: 'Roboto', serif;
   color: var(--primary-txt);
 }
+/* Track */
+::-webkit-scrollbar-track {
+	background-color: #edeae8 ;
+  border-radius: 90px; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {  
+	background-color: #edeae8 ;
+  border-radius: 90px; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: red ; 
+} 
+a:hover {
+  text-decoration: none !important;
+}
 .title {
   font-size: 2rem;
   color:var( --primary-txt);
@@ -45,15 +63,15 @@ html {
 .MuiAccordion-gutters {
   box-shadow: none !important;
 }
-.MuiButtonBase-root {
+.accordion .MuiButtonBase-root {
   overflow: hidden;
 }
 
-.MuiPaper-root + .MuiPaper-root {
+.accordion .MuiPaper-root + .MuiPaper-root {
   margin-top: 32px;
 }
 
-.MuiButtonBase-root::after {
+.accordion .MuiButtonBase-root::after {
   content: "";
   display: block;
   padding: 100px;
@@ -63,4 +81,17 @@ html {
   left: 0;
   transform: translate(-90%, -50%) ;
   border-radius: 50%;
+}
+.rs-picker-default:not(.rs-picker-disabled) .rs-btn-active, .rs-picker-default:not(.rs-picker-disabled) .rs-btn:focus, .rs-picker-default:not(.rs-picker-disabled) .rs-btn:hover, .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle-active, .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:focus, .rs-picker-default:not(.rs-picker-disabled) .rs-picker-toggle:hover {
+  border-color:#f47d20;
+}
+.rs-picker-toggle-active, .rs-picker.rs-picker-focused {
+  box-shadow: none;
+}
+.rs-picker-select-menu-item.rs-picker-select-menu-item-focus, .rs-picker-select-menu-item:focus, .rs-picker-select-menu-item:hover {
+  background-color: rgb(247 212 224); 
+  color: #ed1b24;
+}
+.rs-picker-has-value .rs-btn .rs-picker-toggle-value, .rs-picker-has-value .rs-picker-toggle .rs-picker-toggle-value {
+  color: #ed1b24;
 }
