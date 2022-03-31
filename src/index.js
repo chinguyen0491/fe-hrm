@@ -10,6 +10,7 @@ const PageNotFound = lazy(() => import("./Pages/PageNotFound"));
 const Recruit = lazy(() => import("./Pages/Recruit")); 
 const FormRecruit = lazy(() => import("./Pages/FormRecruit/FormRecruit")); 
 const FAQs = lazy(() => import("./Pages/FAQs/")); 
+const DetailJob = lazy(() => import("./Pages/DetailJob"))
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <BrowserRouter>  
@@ -17,6 +18,7 @@ ReactDOM.render(
               <Switch>
                 <Route exact path="/" component={App} /> 
                 <Route exact path="/tuyen-dung" component={Recruit} /> 
+                <Route path="/tuyen-dung/:name" component={DetailJob} />  
                 <Route exact path="/tuyen-dung/apply" component={FormRecruit} />  
                 <Route exact path="/hoi-dap" component={FAQs} /> 
                 <Route path="/*" component={PageNotFound} />
