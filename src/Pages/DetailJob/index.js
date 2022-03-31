@@ -4,7 +4,7 @@ function Index({ match }) {
     let id  = useHistory(); 
     console.log(id)
   return (
-    <h1>Name: {id.location.hash}</h1>
+    <h1>Name: {id.location.search}</h1>
   )
 }
 
