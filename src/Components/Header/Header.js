@@ -67,7 +67,7 @@ function HeaderSeconds() {
                     </NavLink>
                   </li>
                   <li  className="d-none d-md-block">
-                    <NavLink activeClassName="active-navbar" to="/login" className="btn-header mt-0">
+                    <NavLink activeClassName="active-navbar" to="/login" className="nav-link active-navbar">
                       Đăng nhập
                     </NavLink>
                   </li>

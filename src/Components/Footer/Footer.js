@@ -13,7 +13,7 @@ function Footer() {
             <div className={styles.grid}>
                 <div className={styles.north}>
                     <p className={styles.north__detail}>
-                        Văn phòng miền Bắc: Tầng 2, Tòa nhà N03TS, Khu Đoàn ngoại giao,
+                        Văn phòng miền Bắc: Tầng 2, Tòa nhà N03TS, Khu Đoàn ngoại giao,<br />
                         Phường Xuân Tảo, Quận Bắc Từ Liêm, Thành phố Hà Nội, Việt Nam. <br />
                         Điện thoại: (+84) 24 3795 5333 / 336 <span className="styles__ml32">
                             *Fax: (+84) 28 5411 1566
@@ -35,10 +35,10 @@ function Footer() {
                 </div>
                 <div className={styles.south}>
                     <p className={styles.south__detail}>
-                        Văn phòng miền Nam: Số 25 Nguyễn Lương Bằng, Tân Phú, Quận 7, Tp. Hồ Chí Minh <br />
+                        Văn phòng miền Nam: Số 25 Nguyễn Lương Bằng, Tân Phú, Quận 7,<br /> Tp. Hồ Chí Minh <br />
                         Điện thoại: (+84) 28 5411 6336 <span>*Fax: (+84) 28 5411 1566</span> <br />
-                        Nhà máy Diligo Holdings: Nhà máy 1: Thôn Lộc Hà, Xã Mai Lâm, Huyện Đông Anh, Hà Nội <br />
-                        Nhà máy 2: Lô CN-27.1, KCN Thuận Thành II, An Bình, Thuận Thành, Bắc Ninh <br />
+                        Nhà máy Diligo Holdings: Nhà máy 1: Thôn Lộc Hà, Xã Mai Lâm,<br /> Huyện Đông Anh, Hà Nội <br />
+                        Nhà máy 2: Lô CN-27.1, KCN Thuận Thành II, An Bình, Thuận Thành,<br /> Bắc Ninh <br />
                         Điện thoại: (+84) 24 3795 5333
                     </p>
                     <p className={styles.social__title}>

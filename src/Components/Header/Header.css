@@ -3,13 +3,16 @@
     height: 45px;
 }
 .header-default {
-    padding: 20px 0;
+    padding: 15px 0;
     position: relative;
     width: 100%;
     box-shadow: 0 0 35px -10px rgb(0 0 0 / 15%);
+    position:fixed;
+    background-color:#fff;
+    z-index: 1111;
   }
   .header-default .navbar-nav {
-    margin-left: 50px;
+    margin-left: 150px;
     gap: 65px;
   }
   
@@ -140,13 +143,13 @@
     padding: 0;
   }
   
-  .navbar-nav {
-    font-family: "Poppins", sans-serif;
-    font-size: 14px;
+  .navbar-nav { 
+    font-size: 16px;
   }
   .navbar-nav .nav-link {
     padding: 0.439rem 1rem;
-    color: #203656;
+    color: #000;
+
     font-weight: 600;
     transition: all 0.2s ease-in-out;
   }
@@ -155,10 +158,8 @@
   }  
    a.active-navbar, .btn-header {
     color: #FFF !important;
-    border-radius: 25px;
-    background: var(--primary);
-    background: -webkit-linear-gradient(left, var(--primary) 0%, #fb8bb0 100%);
-    background: linear-gradient(to right, var(--darkred) 0%, var(--lightred) 100%);
+    border-radius: 8px;
+    background: var(--primary); 
   }
   .btn-header {
     padding:10px 30px 15px;

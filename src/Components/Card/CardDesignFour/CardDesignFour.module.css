@@ -1,0 +1,20 @@
+.boxImage {
+    height:200px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.listContent {
+    list-style-type: none;
+    line-height: 30px;
+}
+.titleBox {
+    font-weight: 700;
+    color:#000;
+}
+.link {
+    font-size: 16px;
+}
+.link:hover {
+    color:var(--primary)
+}

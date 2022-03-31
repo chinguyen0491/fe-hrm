@@ -141,7 +141,7 @@ function Index() {
     {
       label: "Số lượng tuyển",
       value: "number",
-    },
+    }, 
   ];
 
   React.useEffect(() => {
@@ -150,8 +150,8 @@ function Index() {
       .then((data) => {
         setData(data.data);
       });
+      console.log(data);
   }, [data]);
-  console.log(data);
 
   const [categoryJob, setCategoryJob] = useState("");
   const [optionSort, setOptionSort] = useState("");

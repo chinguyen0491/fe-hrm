@@ -6,7 +6,7 @@ function CardDesignSecond({image,content,link}) {
     <div className={styles.box}>
         <div style={{height: '250px', backgroundImage: `url(${image})`, backgroundSize: 'cover', backgroundPosition: 'center' ,backgroundRepeat:'no-repeat' }}/>
         <div className={`p-3 ${styles.content}`}>
-            <p className={'mb-4'} style={{fontWeight:'700',fontSize:'16px'}}>{content}</p>
+            <p className={'mb-4'} style={{fontWeight:'600',fontSize:'16px'}}>{content}</p>
             <Link className={'mt-4'} to={`/${link}`}>Xem thêm</Link>
         </div>
     </div>
