@@ -149,9 +149,8 @@ function Index() {
       .then((results) => results.json())
       .then((data) => {
         setData(data.data);
-      });
+      });      
   }, [data]);
-  console.log(data);
 
   const [categoryJob, setCategoryJob] = useState("");
   const [optionSort, setOptionSort] = useState("");
