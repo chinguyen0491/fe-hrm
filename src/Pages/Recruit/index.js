@@ -149,8 +149,7 @@ function Index() {
       .then((results) => results.json())
       .then((data) => {
         setData(data.data);
-      });
-      console.log(data);
+      });      
   }, [data]);
 
   const [categoryJob, setCategoryJob] = useState("");

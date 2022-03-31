@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Recruit.module.css";
+import {Link} from "react-router-dom"
 function LineInfor({ name, address, salary, number, deadline, status, index }) {
   return (
     <div>
@@ -9,7 +10,7 @@ function LineInfor({ name, address, salary, number, deadline, status, index }) {
       >
         <div className={styles.contentLeft}>
           <h5 className={styles.name}>
-            {index + 1}. {name}
+            <Link to="./tuyen-dung/apply">{index + 1}. {name}</Link>
           </h5>
           <p className={`ms-2 ${styles.description}`}>
             {address} | Từ {salary} | Số lượng {number}
