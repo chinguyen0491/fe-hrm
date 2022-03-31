@@ -46,7 +46,6 @@ export default function FormRecruit() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
     formState,
   } = useForm({ mode: "onChange" });
 
