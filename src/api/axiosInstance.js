@@ -1,26 +1,34 @@
-import React from 'react';
+// import axios from "axios";
 
-import axios from 'axios';
+// const axiosInstance = axios.create({
+//     baseURL: "http://test.diligo.vn:15000/api/v1/"
+// })
 
-export default class PersonList extends React.Component {
-  state = {
-    persons: []
-  }
+// const getConfig = () => {
+//     const accessToken = localStorage.getItem("accessToken")
+//     console.log(typeof accessToken)
+//     const author = 'Bearer ' + accessToken.substring(1, accessToken.length - 1)
+//     console.log(author)
+//     console.log(localStorage.getItem("accessToken"))
+//     return {
+//         headers: {
+//             'Content-Type': 'application/json',
+//             "Authorization": `${author}`
+//         }
+//     }
+// }
 
-  componentDidMount() {
-    axios.get(`http://localhost:15000/api/v1/districts`)
-      .then(res => {
-        const persons = res.data;
-        this.setState({ persons });
-      })
-      .catch(error => console.log(error));
-  }
+// const search = url => {
+//     return axiosInstance.get(url, getConfig())
+// }
 
-  render() {
-    return (
-      <ul>
-        { this.state.persons.map(person => <li>{person.name}</li>)}
-      </ul>
-    )
-  }
-}
+// const getJobs = url => (
+//     axiosInstance.get(`/${url}`)
+// )
+
+
+
+// export default {
+//     search,
+//     getJobs
+// }
