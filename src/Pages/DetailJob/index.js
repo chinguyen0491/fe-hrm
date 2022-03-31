@@ -1,11 +1,10 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
-import { useLocation } from 'react-router-dom'; 
-function Index() { 
-    let id  = useParams(); 
+import { useHistory } from 'react-router-dom'; 
+function Index({ match }) { 
+    let id  = useHistory(); 
     console.log(id)
   return (
-    <h1>Name: {id.name}</h1>
+    <h1>Name: {id.location.hash}</h1>
   )
 }
 

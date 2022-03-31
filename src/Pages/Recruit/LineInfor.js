@@ -11,7 +11,12 @@ function LineInfor({ name, address, salary, number, deadline, status, index }) {
       >
         <div className={styles.contentLeft}>
           <h5 className={styles.name}>
-            <Link to={`/tuyen-dung/${toSlug(name)}`}>{index + 1}. {name}</Link>
+            <Link to={{
+    pathname: `/tuyen-dung/${toSlug(name)}`,
+    search: "?sort=13123123123123123",
+    hash: "#xm,vnjksdhfgkjhfklg",
+    state: { fromDashboard: true }
+  }}>{index + 1}. {name}</Link>
           </h5>
           <p className={`ms-2 ${styles.description}`}>
             {address} | Từ {salary} | Số lượng {number}
