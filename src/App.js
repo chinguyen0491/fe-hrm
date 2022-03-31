@@ -21,6 +21,7 @@ import j2 from './assets/image/j2.png'
 import j3 from './assets/image/j3.jpg'
 import j4 from './assets/image/j4.jpg'
 import Partner from "./Components/Partner/Partner";
+import Loading from './Components/Loading/Loading'
 function App() {
   const dataShare = [
     {
@@ -85,7 +86,7 @@ function App() {
   ]
   return (
     <>
-      <Header />
+       <Header />
       <BannerNoAction image={bannerimage} />
       <div className="container mb-5" style={{marginTop: "-100px" }}>
         
@@ -153,7 +154,7 @@ background:' linear-gradient(90deg, rgba(186,218,233,1) 0%, rgba(255,255,255,1) 
       </div>
       <Partner />
       <div className="" style={{marginTop:'100px'}}>
-      <Footer /></div>
+      <Footer /></div>  
     </>
   );
 }
