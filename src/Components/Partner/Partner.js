@@ -1,12 +1,12 @@
 import React from 'react'
 import Slider from "react-slick";
 import './Partner.css';  
-import l1 from '../../assets/image/l1.jpg'
-import l2 from '../../assets/image/l2.jpg'
-import l3 from '../../assets/image/l3.jpg'
-import l4 from '../../assets/image/l4.jpg'
-import l5 from '../../assets/image/l5.jpg'
-import l6 from '../../assets/image/l6.jpg'
+import l1 from '../../assets/image/l1.png'
+import l2 from '../../assets/image/l2.png'
+import l3 from '../../assets/image/l3.png'
+import l4 from '../../assets/image/l4.png'
+import l5 from '../../assets/image/l5.png'
+import l6 from '../../assets/image/l6.png'
 function Partner() {
     const data =[
         {
@@ -26,13 +26,7 @@ function Partner() {
         },
         {
             image:l6,
-        } ,
-        {
-            image:l6,
-        } ,
-        {
-            image:l6,
-        } 
+        }  
     ]
     var settings = {
         dots: false,
