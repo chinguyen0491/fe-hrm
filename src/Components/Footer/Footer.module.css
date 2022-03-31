@@ -1,6 +1,6 @@
 .main { 
     height: 550px;
-    background: linear-gradient(#BF202E 50%, #a0202f 50%); 
+    background: linear-gradient(#BF202E 50%, #91202e 50%); 
 }
 
 .footer__title {
@@ -28,7 +28,7 @@
 
 .north__detail span
 ,.south__detail span{
-    margin-left: 100px;
+    margin-left: 65px;
 }
 
 .south {
@@ -63,7 +63,7 @@
     display: flex;
     width: 50px;
     height: 50px;
-    background-color: var(--primary);
+    background-color: #e56426;
     border-radius: 50%;
     justify-content: center;
     align-items: center;

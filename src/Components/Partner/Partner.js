@@ -26,16 +26,23 @@ function Partner() {
         },
         {
             image:l6,
+        } ,
+        {
+            image:l6,
+        } ,
+        {
+            image:l6,
         } 
     ]
     var settings = {
         dots: false,
         arrows: false,
-        infinite: false,
+        infinite: true,
         speed: 500,
         slidesToShow: 6,
-        slidesToScroll: 1,
-        initialSlide: 0,
+        slidesToScroll: 2,
+        autoplay: true,
+        autoplaySpeed: 4000,
         padding: "200px",
         responsive: [
           {
@@ -67,14 +74,14 @@ function Partner() {
       let listPartner = data.map((ele,index) => {
           return <>
            <div key={index} style={{padding:"0 20px"}}> 
-                     <div className="position-relative w-100" style={{height: '150px', backgroundImage: `url(${ele.image})`, backgroundSize: '80%', backgroundPosition: 'center' ,backgroundRepeat:'no-repeat' }}></div>
+                     <div className="position-relative w-100" style={{border:'1px solid red', borderRadius:'10px',height: '100px', backgroundImage: `url(${ele.image})`, backgroundSize: '80%', backgroundPosition: 'center' ,backgroundRepeat:'no-repeat' }}></div>
                 </div> 
                     </>
       })
   return (
     <>
     <div className="container"> 
-      <h3 className="text-center title mb-3" style={{ marginTop: "150px" }}>
+      <h3 className="text-center title" style={{ margin: "115px 0 80px 0" }}>
        Những người bạn đồng hành
       </h3>
         <Slider {...settings}>

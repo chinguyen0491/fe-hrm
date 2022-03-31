@@ -141,7 +141,7 @@ function Index() {
     {
       label: "Số lượng tuyển",
       value: "number",
-    },
+    }, 
   ];
 
   React.useEffect(() => {
