@@ -11,3 +11,23 @@
 .title {
     font-weight: 700;
 }
+.link {
+    transition: all 0.2s ease-out;
+    font-size:17px;
+}
+.link:hover {
+    color:var(--primary);
+    font-weight: 700;
+}
+.filterTag {
+    background-color: #ffedb2e3;
+    padding: 5px 15px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+.name a{
+    transition: all 0.2 ease;
+}
+.name a:hover {
+    color: var(--primary);
+}

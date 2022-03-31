@@ -8,123 +8,12 @@ import Tabs from "./Tabs";
 import LineInfor from "./LineInfor";
 import { SelectPicker } from "rsuite";
 import { sortByKey } from "../../extensions/sortKey";
+import CloseIcon from '@mui/icons-material/Close';
+import { useLocation} from 'react-router-dom'
+
 function Index() {
-  const [data, setData] = useState([
-    // {
-    //   title: "Cộng Tác Viên Giao Hàng khối kinh doanh",
-    //   address: "TP.HCM và 61 tỉnh thành khác",
-    //   salary: "7-10",
-    //   number: 271,
-    //   deadline: "20/04/2022",
-    //   status: "Hot",
-    //   link: "/",
-    //   category:"marketing"
-    // },
-    // {
-    //   title: "Cộng Tác Viên Giao Hàng khối kinh doanh",
-    //   address: "TP.HCM và 61 tỉnh thành khác",
-    //   salary: "7-10",
-    //   number: 271,
-    //   deadline: "20/04/2022",
-    //   status: "Hot",
-    //   link: "/",
-    //   category:"nhan-su"
-    // },
-    // {
-    //   title: "Cộng Tác Viên Giao Hàng khối kinh doanh",
-    //   address: "TP.HCM và 61 tỉnh thành khác",
-    //   salary: "7-10",
-    //   number: 271,
-    //   deadline: "20/04/2022",
-    //   status: "Hot",
-    //   link: "/",
-    //   category:"dien"
-    // },
-    // {
-    //   title: "Cộng Tác Viên Giao Hàng khối kinh doanh",
-    //   address: "TP.HCM và 61 tỉnh thành khác",
-    //   salary: "7-10",
-    //   number: 271,
-    //   deadline: "20/04/2022",
-    //   status: "Hot",
-    //   link: "/",
-    //   category:"nhan-su"
-    // },
-    // {
-    //   title: "Cộng Tác Viên Giao Hàng khối kinh doanh",
-    //   address: "TP.HCM và 61 tỉnh thành khác",
-    //   salary: "7-10",
-    //   number: 353,
-    //   deadline: "20/04/2022",
-    //   status: "Hot",
-    //   link: "/",
-    //   category:"marketing"
-    // },
-    // {
-    //   title: "Cộng Tác Viên Giao Hàng khối kinh doanh",
-    //   address: "TP.HCM và 61 tỉnh thành khác",
-    //   salary: "7-10",
-    //   number: 122,
-    //   deadline: "20/04/2022",
-    //   status: "Hot",
-    //   link: "/",
-    //   category:"marketing"
-    // },
-    // {
-    //   title: "Cộng Tác Viên Giao Hàng khối kinh doanh",
-    //   address: "TP.HCM và 61 tỉnh thành khác",
-    //   salary: "7-10",
-    //   number: 301,
-    //   deadline: "20/04/2022",
-    //   status: "Hot",
-    //   link: "/",
-    //   category:"marketing"
-    // },
-    // {
-    //   title: "Cộng Tác Viên Giao Hàng khối kinh doanh",
-    //   address: "TP.HCM và 61 tỉnh thành khác",
-    //   salary: "7-10",
-    //   number: 571,
-    //   deadline: "20/04/2022",
-    //   status: "Hot",
-    //   link: "/",
-    //   category:"marketing"
-    // },
-    // {
-    //   title: "Cộng Tác Viên Giao Hàng khối kinh doanh",
-    //   address: "TP.HCM và 61 tỉnh thành khác",
-    //   salary: "7-10",
-    //   number: 31,
-    //   deadline: "20/04/2022",
-    //   status: "Hot",
-    //   link: "/",
-    //   category:"marketing"
-    // },
-    // {
-    //   title: "Cộng Tác Viên Giao Hàng khối kinh doanh",
-    //   address: "TP.HCM và 61 tỉnh thành khác",
-    //   salary: "7-10",
-    //   number: 171,
-    //   deadline: "20/04/2022",
-    //   status: "Hot",
-    //   link: "/",
-    //   category:"marketing"
-    // },
-  ]);
-  const category = [
-    {
-      label: "Marketing",
-      value: "marketing",
-    },
-    {
-      label: "Nhân sự",
-      value: "nhan-su",
-    },
-    {
-      label: "Điện",
-      value: "dien",
-    },
-  ];
+  const [data, setData] = useState([]); 
+  let location = useLocation();
   const sortOptions = [
     {
       label: "Độ ưu tiên",
@@ -151,7 +40,7 @@ function Index() {
         setData(data.data);
       });      
   }, [data]); 
-console.log(data)
+// console.log(data)
   const [categoryJob, setCategoryJob] = useState("");
   const [optionSort, setOptionSort] = useState("");
   const [dataHandle, setDataHandle] = useState([]);
@@ -173,6 +62,9 @@ console.log(data)
       );
     }
   }, [optionSort, data]);
+  React.useEffect(() => {
+    setCategoryJob(location.pathname.replace('/tuyen-dung/','')) 
+  },[location])
   return (
     <>
       <Header />
@@ -191,26 +83,11 @@ console.log(data)
               >
                 <p className="me-3">
                   Có <strong>{dataHandle.length}</strong> việc làm
-                </p>
-                <SelectPicker
-                  onClean={() => {
-                    setCategoryJob("");
-                  }}
-                  onSelect={(e) => {
-                    setCategoryJob(e);
-                  }}
-                  placeholder="Chọn Việc làm"
-                  data={category}
-                  searchable={false}
-                  style={{
-                    boxShadow: `none`,
-                    borderRadius: "0.75em",
-                    transition:
-                      "background-color 0.2s ease,box-shadow 0.2s ease",
-                    width: 200,
-                  }}
-                  block
-                />
+                </p> 
+                {categoryJob.replace('/tuyen-dung/','') !== '' &&  <div className={`d-flex justify-content-start align-items-center ${styles.filterTag}`}>
+                <p>{categoryJob}</p>
+                <CloseIcon sx={{color:"#000",fontSize:"14px"}} onClick={() => setCategoryJob('')}/>
+                </div>}
               </div>
               <div
                 className={`d-flex justify-content-start align-items-center ${styles.containerHeaderRight}`}
