@@ -11,12 +11,12 @@ import { sortByKey } from "../../extensions/sortKey";
 import CloseIcon from '@mui/icons-material/Close';
 import { useLocation,useHistory} from 'react-router-dom'
 import { RecruitContext }from '../../hook/ContextRecruit' 
+import { toSlug} from '../../extensions/toSlug'
 import Details from '../DetailJob/'
-function Index() { 
-  const [data, setData] = useState([]); 
+function Index() {  
   let location = useLocation();
   let history = useHistory();
-  const  {category,setCategory} = useContext(RecruitContext)
+  const  {data,category,setCategory,setKeySearch,keySearch} = useContext(RecruitContext)
   const sortOptions = [
     {
       label: "Độ ưu tiên",
@@ -34,43 +34,31 @@ function Index() {
       label: "Số lượng tuyển",
       value: "number",
     },
-  ];
-
-  React.useEffect(() => {
-    let isMounted = true;
-    fetch(`http://test.diligo.vn:15000/api/v1/recruitment`)
-      .then((results) => results.json())
-      .then((data) => {
-          if (isMounted) {
-        setData(data.data);
-          }
-      });
-  }, [data]);
-  // console.log(data) 
+  ]; 
   const [optionSort, setOptionSort] = useState("");
-  const [dataHandle, setDataHandle] = useState([]);
-
+  const [dataHandle, setDataHandle] = useState([]); 
   React.useEffect(() => {
     setDataHandle(
-      category === "" ? data : data.filter((o) => o.category === category)
+      keySearch === '' ? data : data.filter((o) => toSlug(o.industry.name) === keySearch)
     );
-  }, [category, data]);
+  }, [keySearch, data]);
 
   React.useEffect(() => {
     if (optionSort !== "") {
       setDataHandle(sortByKey(dataHandle, optionSort));
     } else {
       setDataHandle(
-        category === "/tuyen-dung"
+        keySearch === "/tuyen-dung"
           ? data
-          : data.filter((o) => o.category === category)
+          : data.filter((o) => toSlug(o.industry.name) === keySearch)
       );
     }
     // eslint-disable-next-line
   }, [optionSort, data]);
   React.useEffect(() => {
-    setCategory(location.pathname.replace('/tuyen-dung/',''))  
-  },[location,setCategory]) 
+    setKeySearch(location.pathname.replace('/tuyen-dung/',''))  
+  },[location,setKeySearch]) 
+  data.find(x => toSlug(x.industry.name) === location.pathname.replace('/tuyen-dung/','')) && setCategory(data.find(x => toSlug(x.industry.name) === location.pathname.replace('/tuyen-dung/','')).industry.name)   
   return (
     <>
     {

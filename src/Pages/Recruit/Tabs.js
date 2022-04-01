@@ -6,148 +6,16 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import styles from "./Recruit.module.css";
 import { RecruitContext }from '../../hook/ContextRecruit'
 import { toSlug } from "../../extensions/toSlug";
+import { covertText } from "../../extensions/covertText";
+import { compareSameKey } from "../../extensions/compareSameKey";
 import { useHistory } from 'react-router-dom'
 export default function SimpleAccordion() {
-  const  {setCategory} = useContext(RecruitContext)
-  const data = [
-    {
-      q: "Việc làm Khối văn phòng",
-      a: [
-        {
-          title: "Công nghệ thông tin",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Phát triển phần mềm",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Nhân viên kinh doanh",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 4",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-      ],
-    },
-    {
-      q: "Việc làm Khối sản xuất",
-      a: [
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-      ],
-    },
-    {
-      q: "Việc làm Khối kinh doanh",
-      a: [
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-      ],
-    },
-    {
-      q: "Việc làm theo vị trí",
-      a: [
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-        {
-          title: "Đây là dòng 1",
-          content: "Lorem Ipsum is simply dummy",
-        },
-      ],
-    },
-  ];
-  let history = useHistory(); 
+  const  {setCategory,data} = useContext(RecruitContext) 
+  let history = useHistory();   
   
   return (
     <div className={"recruit position-sticky"} style={{ top: "80px" }}>
-      {data.map((ele, index) => {
+      {compareSameKey(data.map((ele) => ({ title: ele.category, job: ele.industry.name }))).map((ele, index) => {
         return (
           <Accordion key={index}>
             <AccordionSummary
@@ -155,15 +23,15 @@ export default function SimpleAccordion() {
               aria-controls={`panel${index}a-content`}
               id={`panel${index}a-header`}
             >
-              <h5 className="ms-3">{ele.q}</h5>
+              <h5 className="ms-3">{covertText(ele.title)}</h5>
             </AccordionSummary>
             <AccordionDetails>
-              {ele.a.map((e, i) => {
+              {ele.job.map((e, i) => {
                 return (
                   <h6
                     onClick={() => {
-                      setCategory(e.title);
-                       history.push(`/tuyen-dung/${toSlug(e.title)}`)
+                      setCategory(e);
+                       history.push(`/tuyen-dung/${toSlug(e)}`)
                     }}
                     className={`ms-3 d-block ${styles.link}`}
                     style={{
@@ -173,7 +41,7 @@ export default function SimpleAccordion() {
                     }}
                     key={i}
                   >
-                    {e.title}
+                    {e}
                   </h6>
                 );
               })}
