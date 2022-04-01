@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "animate.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+
 import { Suspense, lazy } from "react";
 import Loading from "./Components/Loading/Loading";
 import App from "./App";
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route path="/*" component={PageNotFound} />
       </Switch>
     </Suspense>
+
   </BrowserRouter>,
   rootElement
 );

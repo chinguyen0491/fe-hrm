@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import styles from "./Recruit.module.css";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
@@ -9,11 +9,14 @@ import LineInfor from "./LineInfor";
 import { SelectPicker } from "rsuite";
 import { sortByKey } from "../../extensions/sortKey";
 import CloseIcon from '@mui/icons-material/Close';
-import { useLocation} from 'react-router-dom'
+import { useLocation,useHistory} from 'react-router-dom'
+import { RecruitContext }from '../../hook/ContextRecruit' 
+import { toSlug} from '../../extensions/toSlug'
 import Details from '../DetailJob/'
-function Index() { 
-  const [data, setData] = useState([]); 
+function Index() {  
   let location = useLocation();
+  let history = useHistory();
+  const  {data,category,setCategory,setKeySearch,keySearch} = useContext(RecruitContext)
   const sortOptions = [
     {
       label: "Độ ưu tiên",
@@ -31,44 +34,31 @@ function Index() {
       label: "Số lượng tuyển",
       value: "number",
     },
-  ];
-
-  React.useEffect(() => {
-    let isMounted = true;
-    fetch(`http://localhost:15000/api/v1/recruitment`)
-      .then((results) => results.json())
-      .then((data) => {
-          if (isMounted) {
-        setData(data.data);
-          }
-      });
-  }, [data]);
-  // console.log(data)
-  const [categoryJob, setCategoryJob] = useState("");
+  ]; 
   const [optionSort, setOptionSort] = useState("");
-  const [dataHandle, setDataHandle] = useState([]);
-
+  const [dataHandle, setDataHandle] = useState([]); 
   React.useEffect(() => {
     setDataHandle(
-      categoryJob === "" ? data : data.filter((o) => o.category === categoryJob)
+      keySearch === '' ? data : data.filter((o) => toSlug(o.industry.name) === keySearch)
     );
-  }, [categoryJob, data]);
+  }, [keySearch, data]);
 
   React.useEffect(() => {
     if (optionSort !== "") {
       setDataHandle(sortByKey(dataHandle, optionSort));
     } else {
       setDataHandle(
-        categoryJob === ""
+        keySearch === "/tuyen-dung"
           ? data
-          : data.filter((o) => o.category === categoryJob)
+          : data.filter((o) => toSlug(o.industry.name) === keySearch)
       );
     }
     // eslint-disable-next-line
   }, [optionSort, data]);
   React.useEffect(() => {
-    setCategoryJob(location.pathname.replace('/tuyen-dung/',''))  
-  },[location]) 
+    setKeySearch(location.pathname.replace('/tuyen-dung/',''))  
+  },[location,setKeySearch]) 
+  data.find(x => toSlug(x.industry.name) === location.pathname.replace('/tuyen-dung/','')) && setCategory(data.find(x => toSlug(x.industry.name) === location.pathname.replace('/tuyen-dung/','')).industry.name)   
   return (
     <>
     {
@@ -90,14 +80,14 @@ function Index() {
                 <p className="me-3">
                   Có <strong>{dataHandle.length}</strong> việc làm
                 </p>
-                {categoryJob.replace("/tuyen-dung/", "") !== "" && (
+                {category.replace("/tuyen-dung", "") !== "" && (
                   <div
                     className={`d-flex justify-content-start align-items-center ${styles.filterTag}`}
                   >
-                    <p>{categoryJob}</p>
+                    <p>{category}</p>
                     <CloseIcon
                       sx={{ color: "#000", fontSize: "14px" }}
-                      onClick={() => setCategoryJob("")}
+                      onClick={() => {setCategory("");history.push(`/tuyen-dung`)}}
                     />
                   </div>
                 )}

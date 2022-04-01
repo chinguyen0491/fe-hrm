@@ -14,7 +14,7 @@ function CardDesignFour({image,title, dataJob}) {
             {
                 dataJob.filter((item, idx) => idx < 4).map((ele,index)=> {
                     return    <li className={styles.listContent} key={index}>
-                                <Link className={styles.link} to={`/tuyen-dung/${toSlug(ele)}`}>{ele}</Link>
+                                <Link className={styles.link} to={`/tuyen-dung/${toSlug(ele)}`} >{ele}</Link>
                             </li>
                 })
             }
