@@ -84,7 +84,7 @@ function Detail() {
         </div>
         <div className="container2">
           <div className="head">
-            <video controls src="https://www.youtube.com/watch?v=9Xa5mmM0DZQ" autoPlay />
+          <iframe width="650" height="300" src="https://www.youtube.com/embed/9Xa5mmM0DZQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p>
             </p><h2>Mô tả công việc</h2>
             <p />
