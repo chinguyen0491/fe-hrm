@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { compareSameKey } from "./extensions/compareSameKey";
-import {covertText } from './extensions/covertText'
+import { covertText } from './extensions/covertText'
 import Header from "./Components/Header/Header";
 import BannerNoAction from "./Components/Banner/BannerNoAction";
 import bannerimage from "./assets/image/banner-04.jpg";
+import banner1440 from "./assets/image/banner-1140x640-02.jpg";
+import banner768 from "./assets/image/banner-768x520-04.jpg";
 import Footer from "./Components/Footer/Footer";
 import CardDesignSecond from "./Components/Card/CardDesignSecond/CardDesignSecond";
 import CardDesignThree from "./Components/Card/CardDesignThree/CardDesignThree";
@@ -90,23 +92,43 @@ function App() {
         );
       });
   }, []);
-  console.log(compareSameKey(listJob));
+
+  // Handle change banner image 
+  const [banner, setBanner] = useState(bannerimage)
+  useEffect(() => {
+    const handleChangeBanner = () => {
+      if (window.innerWidth > 1440) {
+        setBanner(bannerimage)
+      } else if (window.innerWidth <= 1440 && window.innerWidth > 768) {
+        setBanner(banner1440)
+      } else {
+        setBanner(banner768)
+      }
+    }
+    window.addEventListener('load', () => {
+      handleChangeBanner()
+      window.addEventListener('resize', handleChangeBanner)
+    })
+    return () => {
+      window.removeEventListener('resize', handleChangeBanner)
+    }
+  }, [])
   return (
     <>
       <Header />
-      <BannerNoAction image={bannerimage} />
-      <div className="container mb-5" style={{ marginTop: "-100px" }}>
+      <BannerNoAction image={banner} />
+      <div className="container" style={{ marginTop: "-100px" }}>
         <div
-          className="row px-4 py-5"
+          className="row p-5"
           style={{
             backgroundColor: "#fff",
-            boxShadow: "rgb(0 0 0 / 8%) 8px 7px 7px",
+            boxShadow: "rgb(0 0 0 / 10%) 0 7px 7px",
           }}
         >
           {listJob.length &&
             compareSameKey(listJob).map((ele, index) => {
               return (
-                <div className="col-sm-3" key={index}>
+                <div className="col-md-6 col-lg-3 col-sm-12 mt-5" key={index}>
                   <CardDesignFour
                     title={covertText(ele.title)}
                     image={imageConfig(ele.title)}
@@ -119,7 +141,7 @@ function App() {
       </div>
       <div className="container" style={{ marginTop: "100px" }}>
         <div className="row" style={{ minHeight: "350px" }}>
-          <div className="col-sm-6 p-3">
+          <div className="col-sm-12 col-md-12 col-lg-6 p-3">
             <div className="" style={{ backgroundColor: "#ebeff0" }}>
               <h6 className="text-center p-3 text-uppercase">
                 Thông điệp chào mừng ban lãnh đạo
@@ -135,7 +157,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="col-sm-6 p-3">
+          <div className="col-sm-12 col-md-12 col-lg-6 p-3">
             <div className="" style={{ backgroundColor: "#ebeff0" }}>
               <h6 className="text-center p-3 text-uppercase">
                 Vinh danh nhân sự tiêu biểu
@@ -198,7 +220,7 @@ function App() {
         <div className="row">
           {dataCard.map((ele, index) => {
             return (
-              <div className="col-sm-4 px-3" key={index}>
+              <div className="col-lg-4 col-md-6 col-sm-12 px-3 mt-5" key={index}>
                 <CardDesignThree image={ele.image} content={ele.content} />
               </div>
             );
@@ -212,7 +234,7 @@ function App() {
         <div className="row mt-5">
           {dataShare.map((ele, index) => {
             return (
-              <div className="col-sm-3 px-3" key={index}>
+              <div className="col-lg-3 col-md-6 col-sm-12 px-3 mt-5" key={index}>
                 <CardDesignSecond
                   image={ele.image}
                   content={ele.content}
