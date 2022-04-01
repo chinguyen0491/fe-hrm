@@ -17,7 +17,7 @@ body {
   background-color: #f8fafb;
   position: sticky;
   height: max-content;
-  top: 0;
+  top: 100px;
 }
 
 .btn {

@@ -1,5 +1,5 @@
 import React, { useState  , createContext } from 'react' 
-const RecruitContext = createContext() 
+const RecruitContext = createContext("") 
 function RecruitProvider({children}) {    
     const [data,setData] = useState([])
     const [category , setCategory] = useState('')  
