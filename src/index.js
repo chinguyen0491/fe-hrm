@@ -20,7 +20,7 @@ ReactDOM.render(
         <Route exact path="/" component={App} />
         <Route exact path="/tuyen-dung" component={Recruit} />
         <Route path="/tuyen-dung/:name" component={Recruit} />
-        <Route exact path="/tuyen-dung/apply" component={FormRecruit} />
+        <Route exact path="/recruit/apply" component={FormRecruit} />
         <Route exact path="/chi-tiet" component={Detail} />
         <Route exact path="/hoi-dap" component={FAQs} />
         <Route path="/*" component={PageNotFound} />
