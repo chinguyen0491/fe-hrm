@@ -30,17 +30,20 @@ function Index() {
     {
       label: "Số lượng tuyển",
       value: "number",
-    }, 
+    },
   ];
 
   React.useEffect(() => {
-    fetch(`http://test.diligo.vn:15000/api/v1/recruitment`)
+    let isMounted = true;
+    fetch(`http://localhost:15000/api/v1/recruitment`)
       .then((results) => results.json())
       .then((data) => {
+          if (isMounted) {
         setData(data.data);
-      });      
-  }, [data]); 
-// console.log(data)
+          }
+      });
+  }, [data]);
+  // console.log(data)
   const [categoryJob, setCategoryJob] = useState("");
   const [optionSort, setOptionSort] = useState("");
   const [dataHandle, setDataHandle] = useState([]);
@@ -86,11 +89,18 @@ function Index() {
               >
                 <p className="me-3">
                   Có <strong>{dataHandle.length}</strong> việc làm
-                </p> 
-                {categoryJob.replace('/tuyen-dung/','') !== '' &&  <div className={`d-flex justify-content-start align-items-center ${styles.filterTag}`}>
-                <p>{categoryJob}</p>
-                <CloseIcon sx={{color:"#000",fontSize:"14px"}} onClick={() => setCategoryJob('')}/>
-                </div>}
+                </p>
+                {categoryJob.replace("/tuyen-dung/", "") !== "" && (
+                  <div
+                    className={`d-flex justify-content-start align-items-center ${styles.filterTag}`}
+                  >
+                    <p>{categoryJob}</p>
+                    <CloseIcon
+                      sx={{ color: "#000", fontSize: "14px" }}
+                      onClick={() => setCategoryJob("")}
+                    />
+                  </div>
+                )}
               </div>
               <div
                 className={`d-flex justify-content-start align-items-center ${styles.containerHeaderRight}`}
