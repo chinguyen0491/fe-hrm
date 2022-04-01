@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{memo} from 'react'
 import { useHistory } from 'react-router-dom'; 
 function Index({ match }) { 
     let id  = useHistory(); 
@@ -8,4 +8,4 @@ function Index({ match }) {
   )
 }
 
-export default Index
+export default memo(Index)

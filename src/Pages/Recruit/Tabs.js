@@ -1,12 +1,14 @@
-import * as React from "react";
+import React,{useContext} from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import styles from "./Recruit.module.css";
+import { RecruitContext }from '../../hook/ContextRecruit'
 import { toSlug } from "../../extensions/toSlug";
 import { useHistory } from 'react-router-dom'
 export default function SimpleAccordion() {
+  const  {setCategory} = useContext(RecruitContext)
   const data = [
     {
       q: "Việc làm Khối văn phòng",
@@ -141,10 +143,7 @@ export default function SimpleAccordion() {
       ],
     },
   ];
-  let history = useHistory();
-  function handleCategory(e) {
-    history.push(`/tuyen-dung/${e}`);
-  }
+  let history = useHistory(); 
   
   return (
     <div className={"recruit position-sticky"} style={{ top: "80px" }}>
@@ -162,7 +161,10 @@ export default function SimpleAccordion() {
               {ele.a.map((e, i) => {
                 return (
                   <h6
-                    onClick={() => handleCategory(toSlug(e.title))}
+                    onClick={() => {
+                      setCategory(e.title);
+                       history.push(`/tuyen-dung/${toSlug(e.title)}`)
+                    }}
                     className={`ms-3 d-block ${styles.link}`}
                     style={{
                       cursor: "pointer",
