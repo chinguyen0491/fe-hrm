@@ -47,9 +47,12 @@ export default function FormRecruit() {
     register,
     handleSubmit,
     formState,
+    getValues
   } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
+    const values = getValues()
+    console.log(values)
     handleNext()
     alert(JSON.stringify(data));
   };
