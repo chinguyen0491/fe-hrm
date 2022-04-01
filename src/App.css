@@ -18,6 +18,23 @@
   max-width: 100%;
   box-sizing: border-box;
 }
+/* Track */
+::-webkit-scrollbar {
+	background-color: #edeae8 ;
+  border-radius: 90px;
+  width:10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {  
+	background-color:  #cccccc ;
+  border-radius: 90px; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary) ; 
+} 
 body {
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -42,22 +59,7 @@ html {
   font-family: 'Roboto', serif;
   color: var(--primary-txt);
 }
-/* Track */
-::-webkit-scrollbar-track {
-	background-color: #edeae8 ;
-  border-radius: 90px; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {  
-	background-color: #edeae8 ;
-  border-radius: 90px; 
-}
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: red ; 
-} 
 a:hover {
   text-decoration: none !important;
 }

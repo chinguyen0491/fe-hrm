@@ -145,8 +145,9 @@ export default function SimpleAccordion() {
   function handleCategory(e) {
     history.push(`/tuyen-dung/${e}`);
   }
+  
   return (
-    <div className={"recruit position-sticky"} style={{ top: "0" }}>
+    <div className={"recruit position-sticky"} style={{ top: "80px" }}>
       {data.map((ele, index) => {
         return (
           <Accordion key={index}>

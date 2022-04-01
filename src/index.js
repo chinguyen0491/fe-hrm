@@ -18,8 +18,7 @@ ReactDOM.render(
               <Switch>
                 <Route exact path="/" component={App} /> 
                 <Route exact path="/tuyen-dung" component={Recruit} /> 
-                <Route path="/tuyen-dung/:name" component={Recruit} /> 
-                <Route path="/tuyen-dung/:name/:id" component={DetailJob} />  
+                <Route path="/tuyen-dung/:name" component={Recruit} />  
                 <Route exact path="/tuyen-dung/apply" component={FormRecruit} />  
                 <Route exact path="/hoi-dap" component={FAQs} /> 
                 <Route path="/*" component={PageNotFound} />

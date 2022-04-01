@@ -10,8 +10,8 @@ import { SelectPicker } from "rsuite";
 import { sortByKey } from "../../extensions/sortKey";
 import CloseIcon from '@mui/icons-material/Close';
 import { useLocation} from 'react-router-dom'
-
-function Index() {
+import Details from '../DetailJob/'
+function Index() { 
   const [data, setData] = useState([]); 
   let location = useLocation();
   const sortOptions = [
@@ -61,12 +61,15 @@ function Index() {
           : data.filter((o) => o.category === categoryJob)
       );
     }
+    // eslint-disable-next-line
   }, [optionSort, data]);
   React.useEffect(() => {
-    setCategoryJob(location.pathname.replace('/tuyen-dung/','')) 
-  },[location])
+    setCategoryJob(location.pathname.replace('/tuyen-dung/',''))  
+  },[location]) 
   return (
     <>
+    {
+      location.search ? <Details /> :<> 
       <Header />
       <BannerNoAction image={banner} />
       <div className="container pt-5">
@@ -134,7 +137,7 @@ function Index() {
       </div>
       <div className="mt-5 pt-5">
         <Footer />
-      </div>
+      </div></>}
     </>
   );
 }

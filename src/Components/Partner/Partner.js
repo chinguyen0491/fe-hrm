@@ -66,11 +66,9 @@ function Partner() {
         ]
       };
       let listPartner = data.map((ele,index) => {
-          return <>
-           <div key={index} style={{padding:"0 20px"}}> 
+          return    <div key={index} style={{padding:"0 20px"}}> 
                      <div className="position-relative w-100" style={{border:'1px solid red', borderRadius:'10px',height: '100px', backgroundImage: `url(${ele.image})`, backgroundSize: '80%', backgroundPosition: 'center' ,backgroundRepeat:'no-repeat' }}></div>
-                </div> 
-                    </>
+                </div>  
       })
   return (
     <>
