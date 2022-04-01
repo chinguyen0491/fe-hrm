@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Recruit.module.css";
-import {Link} from "react-router-dom"
-import { toSlug} from '../../extensions/toSlug'
+import { Link } from "react-router-dom";
+import { toSlug } from "../../extensions/toSlug";
 function LineInfor({ name, address, salary, number, deadline, status, index }) {
   return (
     <div>
@@ -11,11 +11,15 @@ function LineInfor({ name, address, salary, number, deadline, status, index }) {
       >
         <div className={styles.contentLeft}>
           <h5 className={styles.name}>
-            <Link to={{
-    pathname: `/tuyen-dung`,
-    search: `${name.id}`, 
-    state: { fromDashboard: true }
-  }}>{index + 1}. {name.name}</Link>
+            <Link
+              to={{
+                pathname: `/tuyen-dung/${toSlug(name.name)}`,
+                search: `${name.id}`,
+                state: { fromDashboard: true },
+              }}
+            >
+              {index + 1}. {name.name}
+            </Link>
           </h5>
           <p className={`ms-2 ${styles.description}`}>
             {address.name} | Từ {salary} | Số lượng {number}
