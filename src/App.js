@@ -1,10 +1,12 @@
-import React,{useContext} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./App.css";
 import { compareSameKey } from "./extensions/compareSameKey";
-import { covertText } from './extensions/covertText'
+import { covertText } from "./extensions/covertText";
 import Header from "./Components/Header/Header";
 import BannerNoAction from "./Components/Banner/BannerNoAction";
 import bannerimage from "./assets/image/banner-04.jpg";
+import bannerImage768 from "./assets/image/banner-768x520-04.jpg";
+import bannerImage1440 from "./assets/image/banner-1140x640-02.jpg";
 import Footer from "./Components/Footer/Footer";
 import CardDesignSecond from "./Components/Card/CardDesignSecond/CardDesignSecond";
 import CardDesignThree from "./Components/Card/CardDesignThree/CardDesignThree";
@@ -24,9 +26,9 @@ import inventory from "./assets/image/j2.png";
 import south from "./assets/image/j3.jpg";
 import factory from "./assets/image/j4.jpg";
 import Partner from "./Components/Partner/Partner";
-import {RecruitContext} from './hook/ContextRecruit'
+import { RecruitContext } from "./hook/ContextRecruit";
 function App() {
-  const {data} = useContext(RecruitContext)
+  const { data } = useContext(RecruitContext);
   const dataShare = [
     {
       image: c1,
@@ -80,21 +82,26 @@ function App() {
       default:
         return south;
     }
-  }; 
+  };
+  let banner;
+  const [img, setImg] = useState(bannerimage);
+  useEffect()
   return (
     <>
       <Header />
-      <BannerNoAction image={bannerimage} />
+      <BannerNoAction image={img} />
       <div className="container" style={{ marginTop: "-100px" }}>
         <div
-          className="row p-5"
+          className="row p-5 mx-auto"
           style={{
             backgroundColor: "#fff",
             boxShadow: "rgb(0 0 0 / 10%) 0 7px 7px",
           }}
         >
           {data.length &&
-            compareSameKey(data.map((ele) => ({ title: ele.category, job: ele.name.name }))).map((ele, index) => {
+            compareSameKey(
+              data.map((ele) => ({ title: ele.category, job: ele.name.name }))
+            ).map((ele, index) => {
               return (
                 <div className="col-md-6 col-lg-3 col-sm-12 mt-5" key={index}>
                   <CardDesignFour
@@ -188,7 +195,10 @@ function App() {
         <div className="row">
           {dataCard.map((ele, index) => {
             return (
-              <div className="col-lg-4 col-md-6 col-sm-12 px-3 mt-5" key={index}>
+              <div
+                className="col-lg-4 col-md-6 col-sm-12 px-3 mt-5"
+                key={index}
+              >
                 <CardDesignThree image={ele.image} content={ele.content} />
               </div>
             );
@@ -202,7 +212,10 @@ function App() {
         <div className="row mt-5">
           {dataShare.map((ele, index) => {
             return (
-              <div className="col-lg-3 col-md-6 col-sm-12 px-3 mt-5" key={index}>
+              <div
+                className="col-lg-3 col-md-6 col-sm-12 px-3 mt-5"
+                key={index}
+              >
                 <CardDesignSecond
                   image={ele.image}
                   content={ele.content}
