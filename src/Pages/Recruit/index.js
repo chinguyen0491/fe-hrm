@@ -64,13 +64,13 @@ function Index() {
     {
       location.search ? <Details /> :<> 
       <Header />
-      <BannerNoAction image={banner} />
+      <BannerNoAction/>
       <div className="container pt-5">
         <div className="row">
-          <div className="col-sm-4">
+          <div className="col-lg-4 col-sm-12 col-md-12">
             <Tabs />
           </div>
-          <div className="col-sm-8">
+          <div className="col-lg-8 col-sm-12 col-md-12">
             <div
               className={`d-flex justify-content-between align-items-center ps-5 pe-4 py-3 ${styles.containerHeader}`}
             >
