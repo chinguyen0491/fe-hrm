@@ -6,7 +6,7 @@ import Header from "./Components/Header/Header";
 import BannerNoAction from "./Components/Banner/BannerNoAction";
 import bannerimage from "./assets/image/banner-04.jpg";
 import bannerImage768 from "./assets/image/banner-768x520-04.jpg";
-import bannerImage1440 from "./assets/image/banner-1140x640-02.jpg";
+import bannerImage1140 from "./assets/image/banner-1140x640-02.jpg";
 import Footer from "./Components/Footer/Footer";
 import CardDesignSecond from "./Components/Card/CardDesignSecond/CardDesignSecond";
 import CardDesignThree from "./Components/Card/CardDesignThree/CardDesignThree";
@@ -83,9 +83,28 @@ function App() {
         return south;
     }
   };
-  let banner;
   const [img, setImg] = useState(bannerimage);
-  useEffect()
+  useEffect(() => {
+    console.log('oke')
+    const handleResize = () => {
+      const checkWidth = window.innerWidth
+      console.log(checkWidth)
+      if (checkWidth > 1140) {
+        setImg(bannerimage)
+      } else if (checkWidth <= 1140 && checkWidth > 768) {
+        setImg(bannerImage1140)
+      } else {
+        setImg(bannerImage768)
+      }
+    }
+    window.addEventListener('load', () => {
+      handleResize()
+      window.addEventListener('resize', handleResize)
+    })
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
   return (
     <>
       <Header />
