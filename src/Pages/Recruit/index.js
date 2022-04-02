@@ -12,7 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useLocation,useHistory} from 'react-router-dom'
 import { RecruitContext }from '../../hook/ContextRecruit' 
 import { toSlug} from '../../extensions/toSlug'
-import Details from '../DetailJob/'
+import Details from '../DetailJob'
 function Index() {  
   let location = useLocation();
   let history = useHistory();
@@ -66,11 +66,11 @@ function Index() {
       <Header />
       <BannerNoAction image={banner} />
       <div className="container pt-5">
-        <div className="row">
-          <div className="col-sm-4">
+        <div className="row flex-md-column flex-lg-row">
+          <div className="col-sm-12 col-md-12 col-lg-4">
             <Tabs />
           </div>
-          <div className="col-sm-8">
+          <div className="col-lg-8 col-md-12 col-sm-12">
             <div
               className={`d-flex justify-content-between align-items-center ps-5 pe-4 py-3 ${styles.containerHeader}`}
             >
