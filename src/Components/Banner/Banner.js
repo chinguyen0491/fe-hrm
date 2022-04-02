@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./Banner.module.css";
 import SearchIcon from '@mui/icons-material/Search';
 
-function Banner({ image }) {
+function Banner() {
   return (
     <div
       className={styles.banner}
-      style={{ backgroundImage: "url(" + image + ")" }}
+      style={{ backgroundImage: `url("${img}")` }}
     >
       <div className="container-xl">
         <div className={styles.banner_input}>

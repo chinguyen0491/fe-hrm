@@ -1,12 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "./App.css";
 import { compareSameKey } from "./extensions/compareSameKey";
 import { covertText } from "./extensions/covertText";
 import Header from "./Components/Header/Header";
 import BannerNoAction from "./Components/Banner/BannerNoAction";
-import bannerimage from "./assets/image/banner-04.jpg";
-import bannerImage768 from "./assets/image/banner-768x520-04.jpg";
-import bannerImage1140 from "./assets/image/banner-1140x640-02.jpg";
 import Footer from "./Components/Footer/Footer";
 import CardDesignSecond from "./Components/Card/CardDesignSecond/CardDesignSecond";
 import CardDesignThree from "./Components/Card/CardDesignThree/CardDesignThree";
@@ -83,32 +80,10 @@ function App() {
         return south;
     }
   };
-  const [img, setImg] = useState(bannerimage);
-  useEffect(() => {
-    console.log('oke')
-    const handleResize = () => {
-      const checkWidth = window.innerWidth
-      console.log(checkWidth)
-      if (checkWidth > 1140) {
-        setImg(bannerimage)
-      } else if (checkWidth <= 1140 && checkWidth > 768) {
-        setImg(bannerImage1140)
-      } else {
-        setImg(bannerImage768)
-      }
-    }
-    window.addEventListener('load', () => {
-      handleResize()
-      window.addEventListener('resize', handleResize)
-    })
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
   return (
     <>
       <Header />
-      <BannerNoAction image={img} />
+      <BannerNoAction />
       <div className="container" style={{ marginTop: "-100px" }}>
         <div
           className="row p-5 mx-auto"
