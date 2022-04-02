@@ -132,21 +132,21 @@ function Detail() {
             <ul className={`${styles.loca} p-0`}>
               <li>
                 <input type="radio" name="radio" />Tầng 2, Toà nhà N03T5, Khu Đoàn ngoại giao, P.Xuân Tảo, Q.Bắc Từ Liêm, TP.Hà
-                Nội. <a href="#">Bản đồ</a>
+                Nội. <a href="/">Bản đồ</a>
               </li>
               <li>
-                <input type="radio" name="radio" />Số 25 Nguyễn Lương Bằng, Tân Phú, Quận 7, Tp. Hồ Chí Minh. <a href="#">Bản
+                <input type="radio" name="radio" />Số 25 Nguyễn Lương Bằng, Tân Phú, Quận 7, Tp. Hồ Chí Minh. <a href="/">Bản
                   đồ</a>
               </li>
               <li>
-                <input type="radio" name="radio" />Thôn Lộc Hà, Xã Mai Lâm, Huyện Đông Anh, Hà Nội. <a href="#">Bản đồ</a>
+                <input type="radio" name="radio" />Thôn Lộc Hà, Xã Mai Lâm, Huyện Đông Anh, Hà Nội. <a href="/">Bản đồ</a>
               </li>
               <li>
-                <input type="radio" name="radio" />Lô CN-27.1, KCN Thuận Thành II, An Bình, Thuận Thành, Bắc Ninh. <a href="#">Bản
+                <input type="radio" name="radio" />Lô CN-27.1, KCN Thuận Thành II, An Bình, Thuận Thành, Bắc Ninh. <a href="/">Bản
                   đồ</a>
               </li>
               <li>
-                <input type="radio" name="radio" />Số 25 Nguyễn Lương Bằng, Tân Phú, Quận 7, Tp. Hồ Chí Minh. <a href="#">Bản
+                <input type="radio" name="radio" />Số 25 Nguyễn Lương Bằng, Tân Phú, Quận 7, Tp. Hồ Chí Minh. <a href="/">Bản
                   đồ</a>
               </li>
             </ul>
