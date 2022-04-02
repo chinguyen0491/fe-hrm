@@ -1,3 +1,4 @@
+
 import React from "react";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
@@ -6,6 +7,7 @@ import banner from "../../assets/image/bannerFAQ.jpg";
 import styles from "./main.module.css"
 
 function Detail() {
+
   return (
     <>
       <Header />
@@ -157,3 +159,4 @@ function Detail() {
 }
 
 export default Detail
+

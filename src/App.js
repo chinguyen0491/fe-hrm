@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import "./App.css";
 import { compareSameKey } from "./extensions/compareSameKey";
 import {covertText } from './extensions/covertText'
@@ -24,7 +24,9 @@ import inventory from "./assets/image/j2.png";
 import south from "./assets/image/j3.jpg";
 import factory from "./assets/image/j4.jpg";
 import Partner from "./Components/Partner/Partner";
+import {RecruitContext} from './hook/ContextRecruit'
 function App() {
+  const {data} = useContext(RecruitContext)
   const dataShare = [
     {
       image: c1,
@@ -78,19 +80,7 @@ function App() {
       default:
         return south;
     }
-  };
-
-  const [listJob, setListJob] = React.useState([]);
-  React.useEffect(() => {
-    fetch(`http://test.diligo.vn:15000/api/v1/recruitment`)
-      .then((results) => results.json())
-      .then((data) => {
-        setListJob(
-          data.data.map((ele) => ({ title: ele.category, job: ele.name.name }))
-        );
-      });
-  }, []);
-  console.log(compareSameKey(listJob));
+  }; 
   return (
     <>
       <Header />
@@ -103,8 +93,8 @@ function App() {
             boxShadow: "rgb(0 0 0 / 8%) 8px 7px 7px",
           }}
         >
-          {listJob.length &&
-            compareSameKey(listJob).map((ele, index) => {
+          {data.length &&
+            compareSameKey(data.map((ele) => ({ title: ele.category, job: ele.name.name }))).map((ele, index) => {
               return (
                 <div className="col-sm-3" key={index}>
                   <CardDesignFour
