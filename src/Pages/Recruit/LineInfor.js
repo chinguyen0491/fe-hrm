@@ -22,7 +22,7 @@ function LineInfor({ name, address, salary, number, deadline, status, index }) {
             </Link>
           </h5>
           <p className={`ms-2 ${styles.description}`}>
-            {address.name} | Từ {salary} | Số lượng {number}
+            {address.name} | {salary[0] !== 'ltt' ? <>Từ {salary}</> : "Lương thoả thuận" }  | Số lượng {number}
           </p>
         </div>
         <div

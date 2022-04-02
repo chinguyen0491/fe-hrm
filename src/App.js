@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React,{useContext} from "react";
 import "./App.css";
 import { compareSameKey } from "./extensions/compareSameKey";
 import { covertText } from './extensions/covertText'
 import Header from "./Components/Header/Header";
 import BannerNoAction from "./Components/Banner/BannerNoAction";
 import bannerimage from "./assets/image/banner-04.jpg";
-import banner1440 from "./assets/image/banner-1140x640-02.jpg";
-import banner768 from "./assets/image/banner-768x520-04.jpg";
 import Footer from "./Components/Footer/Footer";
 import CardDesignSecond from "./Components/Card/CardDesignSecond/CardDesignSecond";
 import CardDesignThree from "./Components/Card/CardDesignThree/CardDesignThree";
@@ -26,7 +24,9 @@ import inventory from "./assets/image/j2.png";
 import south from "./assets/image/j3.jpg";
 import factory from "./assets/image/j4.jpg";
 import Partner from "./Components/Partner/Partner";
+import {RecruitContext} from './hook/ContextRecruit'
 function App() {
+  const {data} = useContext(RecruitContext)
   const dataShare = [
     {
       image: c1,
@@ -80,43 +80,11 @@ function App() {
       default:
         return south;
     }
-  };
-
-  const [listJob, setListJob] = React.useState([]);
-  React.useEffect(() => {
-    fetch(`http://test.diligo.vn:15000/api/v1/recruitment`)
-      .then((results) => results.json())
-      .then((data) => {
-        setListJob(
-          data.data.map((ele) => ({ title: ele.category, job: ele.name.name }))
-        );
-      });
-  }, []);
-
-  // Handle change banner image 
-  const [banner, setBanner] = useState(bannerimage)
-  useEffect(() => {
-    const handleChangeBanner = () => {
-      if (window.innerWidth > 1440) {
-        setBanner(bannerimage)
-      } else if (window.innerWidth <= 1440 && window.innerWidth > 768) {
-        setBanner(banner1440)
-      } else {
-        setBanner(banner768)
-      }
-    }
-    window.addEventListener('load', () => {
-      handleChangeBanner()
-      window.addEventListener('resize', handleChangeBanner)
-    })
-    return () => {
-      window.removeEventListener('resize', handleChangeBanner)
-    }
-  }, [])
+  }; 
   return (
     <>
       <Header />
-      <BannerNoAction image={banner} />
+      <BannerNoAction image={bannerimage} />
       <div className="container" style={{ marginTop: "-100px" }}>
         <div
           className="row p-5"
@@ -125,8 +93,8 @@ function App() {
             boxShadow: "rgb(0 0 0 / 10%) 0 7px 7px",
           }}
         >
-          {listJob.length &&
-            compareSameKey(listJob).map((ele, index) => {
+          {data.length &&
+            compareSameKey(data.map((ele) => ({ title: ele.category, job: ele.name.name }))).map((ele, index) => {
               return (
                 <div className="col-md-6 col-lg-3 col-sm-12 mt-5" key={index}>
                   <CardDesignFour
