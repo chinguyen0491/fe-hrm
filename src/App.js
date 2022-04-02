@@ -1,10 +1,12 @@
-import React,{useContext} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./App.css";
 import { compareSameKey } from "./extensions/compareSameKey";
-import {covertText } from './extensions/covertText'
+import { covertText } from "./extensions/covertText";
 import Header from "./Components/Header/Header";
 import BannerNoAction from "./Components/Banner/BannerNoAction";
 import bannerimage from "./assets/image/banner-04.jpg";
+import bannerImage768 from "./assets/image/banner-768x520-04.jpg";
+import bannerImage1140 from "./assets/image/banner-1140x640-02.jpg";
 import Footer from "./Components/Footer/Footer";
 import CardDesignSecond from "./Components/Card/CardDesignSecond/CardDesignSecond";
 import CardDesignThree from "./Components/Card/CardDesignThree/CardDesignThree";
@@ -24,9 +26,9 @@ import inventory from "./assets/image/j2.png";
 import south from "./assets/image/j3.jpg";
 import factory from "./assets/image/j4.jpg";
 import Partner from "./Components/Partner/Partner";
-import {RecruitContext} from './hook/ContextRecruit'
+import { RecruitContext } from "./hook/ContextRecruit";
 function App() {
-  const {data} = useContext(RecruitContext)
+  const { data } = useContext(RecruitContext);
   const dataShare = [
     {
       image: c1,
@@ -80,23 +82,47 @@ function App() {
       default:
         return south;
     }
-  }; 
+  };
+  const [img, setImg] = useState(bannerimage);
+  useEffect(() => {
+    console.log('oke')
+    const handleResize = () => {
+      const checkWidth = window.innerWidth
+      console.log(checkWidth)
+      if (checkWidth > 1140) {
+        setImg(bannerimage)
+      } else if (checkWidth <= 1140 && checkWidth > 768) {
+        setImg(bannerImage1140)
+      } else {
+        setImg(bannerImage768)
+      }
+    }
+    window.addEventListener('load', () => {
+      handleResize()
+      window.addEventListener('resize', handleResize)
+    })
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
   return (
     <>
       <Header />
-      <BannerNoAction image={bannerimage} />
-      <div className="container mb-5" style={{ marginTop: "-100px" }}>
+      <BannerNoAction image={img} />
+      <div className="container" style={{ marginTop: "-100px" }}>
         <div
-          className="row px-4 py-5"
+          className="row p-5 mx-auto"
           style={{
             backgroundColor: "#fff",
-            boxShadow: "rgb(0 0 0 / 8%) 8px 7px 7px",
+            boxShadow: "rgb(0 0 0 / 10%) 0 7px 7px",
           }}
         >
           {data.length &&
-            compareSameKey(data.map((ele) => ({ title: ele.category, job: ele.name.name }))).map((ele, index) => {
+            compareSameKey(
+              data.map((ele) => ({ title: ele.category, job: ele.name.name }))
+            ).map((ele, index) => {
               return (
-                <div className="col-sm-3" key={index}>
+                <div className="col-md-6 col-lg-3 col-sm-12 mt-5" key={index}>
                   <CardDesignFour
                     title={covertText(ele.title)}
                     image={imageConfig(ele.title)}
@@ -109,7 +135,7 @@ function App() {
       </div>
       <div className="container" style={{ marginTop: "100px" }}>
         <div className="row" style={{ minHeight: "350px" }}>
-          <div className="col-sm-6 p-3">
+          <div className="col-sm-12 col-md-12 col-lg-6 p-3">
             <div className="" style={{ backgroundColor: "#ebeff0" }}>
               <h6 className="text-center p-3 text-uppercase">
                 Thông điệp chào mừng ban lãnh đạo
@@ -125,7 +151,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="col-sm-6 p-3">
+          <div className="col-sm-12 col-md-12 col-lg-6 p-3">
             <div className="" style={{ backgroundColor: "#ebeff0" }}>
               <h6 className="text-center p-3 text-uppercase">
                 Vinh danh nhân sự tiêu biểu
@@ -188,7 +214,10 @@ function App() {
         <div className="row">
           {dataCard.map((ele, index) => {
             return (
-              <div className="col-sm-4 px-3" key={index}>
+              <div
+                className="col-lg-4 col-md-6 col-sm-12 px-3 mt-5"
+                key={index}
+              >
                 <CardDesignThree image={ele.image} content={ele.content} />
               </div>
             );
@@ -202,7 +231,10 @@ function App() {
         <div className="row mt-5">
           {dataShare.map((ele, index) => {
             return (
-              <div className="col-sm-3 px-3" key={index}>
+              <div
+                className="col-lg-3 col-md-6 col-sm-12 px-3 mt-5"
+                key={index}
+              >
                 <CardDesignSecond
                   image={ele.image}
                   content={ele.content}

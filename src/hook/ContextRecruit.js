@@ -4,7 +4,6 @@ function RecruitProvider({children}) {
     const [data,setData] = useState([])
     const [category , setCategory] = useState('')  
     const [keySearch , setKeySearch] = useState('')  
-    console.log(data)
   React.useEffect(() => {
     let isMounted = true;
     fetch(`http://test.diligo.vn:15000/api/v1/recruitment`)

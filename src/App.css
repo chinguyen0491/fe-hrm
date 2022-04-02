@@ -37,6 +37,7 @@
 } 
 body {
   font-family: 'Josefin Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 ul {

@@ -11,8 +11,7 @@ import { useForm } from "react-hook-form";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import styles from "./FormRecruit.module.css";
-import {Link} from "react-router-dom"
-
+import { Link } from "react-router-dom"
 
 const steps = [
   {
@@ -85,8 +84,8 @@ export default function FormRecruit() {
                         required: true,
                         pattern: /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$/i,
                       })}
-                      placeholder="Nhập họ và tên" 
-                      
+                      placeholder="Nhập họ và tên"
+
                     />
 
 
@@ -96,7 +95,7 @@ export default function FormRecruit() {
                         required: true,
                         pattern: /^(84|0[3|5|7|8|9])+([0-9]{8})\b/g,
                       })}
-                      placeholder="Nhập số điện thoại" 
+                      placeholder="Nhập số điện thoại"
                     />
 
 
@@ -105,7 +104,7 @@ export default function FormRecruit() {
                       {...register("email", {
                         required: true,
                         pattern:
-                        /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                          /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                       })}
                       placeholder="Nhập email"
                     />
@@ -114,10 +113,10 @@ export default function FormRecruit() {
                 ) : index === 1 ? (
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <label>Tải lên CV của bạn (Tùy chọn)</label>
-                    <input type="file" placeholder="Tải lên hồ sơ của bạn"/>
+                    <input type="file" placeholder="Tải lên hồ sơ của bạn" />
 
                   </form>
-                ):null}
+                ) : null}
                 <Box sx={{ mb: 2 }}>
                   <div>
                     <Button type="submit"
@@ -131,7 +130,7 @@ export default function FormRecruit() {
                     >
                       {index === steps.length - 1
                         ? "Hoàn tất"
-                        : index === 1?"Bỏ qua": "Bước tiếp theo"}
+                        : index === 1 ? "Bỏ qua" : "Bước tiếp theo"}
                     </Button>
                     <Button
                       disabled={index === 0}
