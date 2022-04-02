@@ -1,15 +1,14 @@
-body {
-  font-family: 'Roboto', sans-serif;
-}
 
 .body {
   display: flex;
   margin: 0 auto;
   max-width: 1200px;
-  gap: 0 50px;
+  gap: 0 35px;
+  margin-top: 30px;
+
 }
 
-.container1 {
+.container1{
   width: 40%;
   display: flex;
   flex-direction: column;
@@ -17,7 +16,7 @@ body {
   background-color: #f8fafb;
   position: sticky;
   height: max-content;
-  top: 100px;
+  top: 0px;
 }
 
 .btn {
@@ -54,15 +53,15 @@ body {
   align-items: center;
 }
 .loca input {
-  width: 10px;
-  margin-right: 20px;
+  width: 25px;
+  margin-right: 35px;
 }
 
-li + li {
+li {
   margin: 20px 0;
 }
 
-ul {
+.container2 .ul1 {
   padding: 0;
   list-style: none;
   margin-block-start: 1em;
@@ -73,7 +72,8 @@ ul {
 }
 
 .label {
-  width: 40%;
+  width:35%;
+  display: inline-block;
 }
 .value {
   flex: 1;
@@ -88,3 +88,10 @@ ul {
   padding: 50px;
 }
 
+.cbox {
+  font-size: 18px;
+}
+
+.video {
+  padding-bottom: 35px;
+}

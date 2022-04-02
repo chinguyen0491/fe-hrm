@@ -4,7 +4,7 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import BannerNoAction from "../../Components/Banner/BannerNoAction";
 import banner from "../../assets/image/bannerFAQ.jpg";
-import "./main.css"
+import styles from "./main.module.css"
 
 function Detail() {
 
@@ -12,79 +12,80 @@ function Detail() {
     <>
       <Header />
       <BannerNoAction image={banner} />
-      <div className="body">
-        <div className="container1">
-          <ul>
+      <div className={styles.body}>
+        <div className={styles.container1}>
+          <ul className={styles.ul1}>
             <li>
-              <span className="label">
+              <span className={styles.label}>
                 Nơi làm việc:
               </span>
-              <span className="value">
+              <span className={styles.value}>
                 <strong>TP.HCM và 61 tỉnh thành khác</strong>
               </span>
             </li>
             <li>
-              <span className="label">
+              <span className={styles.label}>
                 Cấp bậc:
               </span>
-              <span className="value">
+              <span className={styles.value}>
                 <strong>Cộng tác viên</strong>
               </span>
             </li>
             <li>
-              <span className="label">
+              <span className={styles.label}>
                 Hình thức:
               </span>
-              <span className="value">
+              <span className={styles.value}>
                 <strong>Công tác viên/Thời vụ/Bán thời gian</strong>
               </span>
             </li>
             <li>
-              <span className="label">
+              <span className={styles.label}>
                 Bằng cấp:
               </span>
-              <span className="value">
+              <span className={styles.value}>
                 <strong>Không yêu cầu</strong>
               </span>
             </li>
             <li>
-              <span className="label">
+              <span className={styles.label}>
                 Kinh nghiệm:
               </span>
-              <span className="value">
+              <span className={styles.value}>
                 <strong>Không cần kinh nghiệm</strong>
               </span>
             </li>
             <li>
-              <span className="label">
+              <span className={styles.label}>
                 Thu nhập:
               </span>
-              <span className="value">
+              <span className={styles.value}>
                 <strong>Từ 7 - 10 triệu</strong>
               </span>
             </li>
             <li>
-              <span className="label">
+              <span className={styles.label}>
                 Số lượng tuyển:
               </span>
-              <span className="value">
+              <span className={styles.value}>
                 <strong>2712 người</strong>
               </span>
             </li>
             <li>
-              <span className="label">
+              <span className={styles.label}>
                 Hạn nhận hồ sơ:
               </span>
-              <span className="value">
+              <span className={styles.value}>
                 <strong>28/04/2022</strong>
               </span>
             </li>
           </ul>
-          <button className="btn">Ứng tuyển</button>
+          <button className={styles.btn}>Ứng tuyển</button>
         </div>
-        <div className="container2">
-          <div className="head">
-          <iframe width="650" height="300" src="https://www.youtube.com/embed/9Xa5mmM0DZQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div className={styles.container2}>
+          <div className={styles.video}><video controls src="https://www.youtube.com/watch?v=9Xa5mmM0DZQ" autoPlay /></div>
+          <div className={styles.head}>
+
             <p>
             </p><h2>Mô tả công việc</h2>
             <p />
@@ -116,19 +117,19 @@ function Detail() {
             </p><h2>Địa điểm làm việc (2 thành phố lớn)</h2>
             <p />
           </div>
-          <div className="cbox">
+          <div className={styles.cbox}>
             <select name="cars" id="cars">
               <option value="HN">Hà Nội</option>
               <option value="HCM">TP.Hồ Chí Minh</option>
             </select>
           </div>
-          <div className="check">
+          <div className={styles.check}>
             <input type="checkbox" />
             <p>Địa điểm gần bạn nhất</p>
           </div>
 
-          <div className="loca">
-            <ul className="p-0">
+          <div className={styles.loca}>
+            <ul className={`${styles.loca} p-0`}>
               <li>
                 <input type="radio" name="radio" />Tầng 2, Toà nhà N03T5, Khu Đoàn ngoại giao, P.Xuân Tảo, Q.Bắc Từ Liêm, TP.Hà
                 Nội. <a href="/">Bản đồ</a>
