@@ -1,0 +1,27 @@
+.btn{
+    margin-top: 2rem;
+    padding: 1.6rem;
+    border-radius: 2.4rem;
+}
+
+.login{
+    background-color: rgb(150, 0, 0);
+    color: #fff;
+}
+.back{
+    background-color: #fff;
+}
+
+.title{
+    color: #fff;    
+}
+
+.logo{
+    display: block;
+    max-width: 25rem;
+    margin: 0 auto 5rem;
+}
+
+.link{
+    padding: 0;
+}
