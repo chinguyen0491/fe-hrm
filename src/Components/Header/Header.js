@@ -57,7 +57,7 @@ function HeaderSeconds() {
                     </button>
                   </li>
                   <li className="d-block d-md-none">
-                    <NavLink activeClassName="active-navbar" to='/login'>
+                    <NavLink activeClassName="active-navbar" to='/dang-nhap'>
                     <button
                       className="burger-menu icon-button ms-2 float-end float-md-none"
                       aria-label="Burger"
@@ -67,7 +67,7 @@ function HeaderSeconds() {
                     </NavLink>
                   </li>
                   <li  className="d-none d-md-block">
-                    <NavLink activeClassName="active-navbar" to="/login" className="nav-link active-navbar">
+                    <NavLink activeClassName="active-navbar" to="/dang-nhap" className="nav-link active-navbar">
                       Đăng nhập
                     </NavLink>
                   </li>

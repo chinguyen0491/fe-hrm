@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import "./App.css";
 import { compareSameKey } from "./extensions/compareSameKey";
 import { covertText } from "./extensions/covertText";
@@ -85,26 +86,26 @@ function App() {
   };
   const [img, setImg] = useState(bannerimage);
   useEffect(() => {
-    console.log('oke')
+    console.log("oke");
     const handleResize = () => {
-      const checkWidth = window.innerWidth
-      console.log(checkWidth)
+      const checkWidth = window.innerWidth;
+      console.log(checkWidth);
       if (checkWidth > 1140) {
-        setImg(bannerimage)
+        setImg(bannerimage);
       } else if (checkWidth <= 1140 && checkWidth > 768) {
-        setImg(bannerImage1140)
+        setImg(bannerImage1140);
       } else {
-        setImg(bannerImage768)
+        setImg(bannerImage768);
       }
-    }
-    window.addEventListener('load', () => {
-      handleResize()
-      window.addEventListener('resize', handleResize)
-    })
+    };
+    window.addEventListener("load", () => {
+      handleResize();
+      window.addEventListener("resize", handleResize);
+    });
     return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [])
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <>
       <Header />
@@ -247,6 +248,10 @@ function App() {
       </div>
       <Partner />
       <div className="" style={{ marginTop: "100px" }}>
+        <MessengerCustomerChat
+          pageId="108253341849236"
+          appId="719322076103425"
+        />
         <Footer />
       </div>
     </>
