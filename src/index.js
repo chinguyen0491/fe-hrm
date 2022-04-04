@@ -11,11 +11,11 @@ import App from "./App";
 const SignIn = lazy(() => import("./Pages/Account/SignIn"));
 const SignOut = lazy(() => import("./Pages/Account/SignOut"));
 const PageNotFound = lazy(() => import("./Pages/PageNotFound"));
-const Recruit = lazy(() => import("./Pages/Recruit/Index"));
+const Recruit = lazy(() => import("./Pages/Recruit"));
 const FormRecruit = lazy(() => import("./Pages/FormRecruit/FormRecruit"));
 
-const FAQs = lazy(() => import("./Pages/FAQs/Index"));
-const Detail = lazy(() => import("./Pages/DetailJob/Index"))
+const FAQs = lazy(() => import("./Pages/FAQs"));
+const Detail = lazy(() => import("./Pages/DetailJob"))
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
