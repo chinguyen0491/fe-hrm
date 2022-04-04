@@ -72,10 +72,10 @@ function Index() {
               </div>
               <div className="col-lg-8 col-md-12 col-sm-12">
                 <div
-                  className={`d-flex justify-content-between flex-md-row flex-sm-column align-items-sm-start align-items-center ps-5 pe-4 py-3 ${styles.containerHeader}`}
+                  className={`d-flex justify-content-between flex-md-row flex-sm-column-reverse align-items-md-center align-items-sm-start align-items-center ps-5 pe-4 py-3 ${styles.containerHeader}`}
                 >
                   <div
-                    className={`d-flex justify-content-start align-items-center ${styles.containerHeaderLeft}`}
+                    className={`d-flex my-sm-3 justify-content-start align-items-center ${styles.containerHeaderLeft}`}
                   >
                     <p className="me-3">
                       Có <strong>{dataHandle.length}</strong> việc làm
@@ -93,7 +93,7 @@ function Index() {
                     )}
                   </div>
                   <div
-                    className={`d-flex justify-content-start align-items-center mt-sm-3 mt-md-0 ${styles.containerHeaderRight}`}
+                    className={`d-flex justify-content-start align-items-center mt-sm-0 ${styles.containerHeaderRight}`}
                   >
                     <p className="me-3">Xếp theo</p>
                     <SelectPicker
