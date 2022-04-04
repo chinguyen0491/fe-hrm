@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { toSlug } from '../../extensions/toSlug'
 import styles from './main.module.css'
 
 function Info({ mainData }) {
@@ -65,7 +67,16 @@ function Info({ mainData }) {
                     </li>
                 </ul>
             }
-            <button className={styles.btn}>Ứng tuyển</button>
+            <Link
+                to={{
+                    pathname: `/recruit/apply/${toSlug(mainData.name.name)}`,
+                    search: `${mainData.id}`,
+                    state: { fromDashboard: true }
+                }}
+                className={styles.btn
+                }>
+                Ứng tuyển
+            </Link>
         </div>
     )
 }

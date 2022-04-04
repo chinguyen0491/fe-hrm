@@ -128,6 +128,7 @@ function Index() {
                       link={ele.link}
                       key={index}
                       index={index}
+                      id={ele.id}
                     />
                   );
                 })}
