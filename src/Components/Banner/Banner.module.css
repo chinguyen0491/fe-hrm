@@ -7,6 +7,7 @@
     background-size: cover;
     padding-top: 30rem;
     padding-bottom: 10rem;
+    transition: 0.5s ease-in-out;
 }
 
 .banner_input {
@@ -28,4 +29,17 @@ input{
     right: 0;
     padding: 10px;
     background: transparent
+}
+
+@media (min-width:40em) and (max-width: 62.5em) {
+    .banner{
+        background-size: contain;
+        padding-top: 25rem;
+    }
+}
+@media (max-width: 40em) {
+    .banner{
+        background-size: contain;
+        padding-top: 14rem;
+    }
 }
