@@ -11,7 +11,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useLocation, useHistory } from 'react-router-dom'
 import { RecruitContext } from '../../hook/ContextRecruit'
 import { toSlug } from '../../extensions/toSlug'
-import Details from '../DetailJob/Index'
+import Details from '../DetailJob'
 function Index() {
   let location = useLocation();
   let history = useHistory();
