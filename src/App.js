@@ -83,30 +83,6 @@ function App() {
         return south;
     }
   };
-
-  const [img, setImg] = useState(bannerimage);
-  useEffect(() => {
-    console.log("oke");
-    const handleResize = () => {
-      const checkWidth = window.innerWidth;
-      console.log(checkWidth);
-      if (checkWidth > 1140) {
-        setImg(bannerimage);
-      } else if (checkWidth <= 1140 && checkWidth > 768) {
-        setImg(bannerImage1140);
-      } else {
-        setImg(bannerImage768);
-      }
-    };
-    window.addEventListener("load", () => {
-      handleResize();
-      window.addEventListener("resize", handleResize);
-    });
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
     <>
       <Header />
