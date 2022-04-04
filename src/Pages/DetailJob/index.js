@@ -29,13 +29,13 @@ function Detail() {
       <BannerNoAction />
       <div className='container'>
         <div className="row mt-5">
-          <div className='col-4'>
+          <div className='col-lg-4 col-sm-12 mb-sm-5 mb-lg-0'>
             {mainData && <Info
               mainData={mainData}
             />}
           </div>
           {
-            mainData && <div className='col-8' style={{ fontSize: '1rem', lineHeight: '2rem' }}>
+            mainData && <div className='col-lg-8 col-sm-12' style={{ fontSize: '1rem', lineHeight: '2rem' }}>
               <div className={styles.video}>
                 <video
                   controls
@@ -71,16 +71,28 @@ function Detail() {
                   content={mainData.welfare.map(val => val.name)}
                 />
               }
-              <div className="mt-3">
-                <FormControl>
+              <div className="my-5">
+                <h3 className={styles.content__title}>
+                  Địa chỉ công ty
+                </h3>
+                <FormControl style={{ margin: '2rem 0' }}>
                   <InputLabel>
                     Địa chỉ
                   </InputLabel>
-                  <Select style={{minWidth: 200, margin: '2rem 0'}}>
+                  <Select style={{ minWidth: 200 }}>
                     <MenuItem value={'hanoi'}>Hà nội</MenuItem>
-                    <MenuItem value={'hochiminh'}>Hà nội</MenuItem>
+                    <MenuItem value={'hochiminh'}>Hồ Chí Minh</MenuItem>
                   </Select>
                 </FormControl>
+                <div className="my-2">
+                  <input type="checkbox" value={true} style={{ width: 'max-content' }} /> Địa điểm gần bạn
+                </div>
+                <ContentItem
+                  content={[
+                    'Tầng 2, Toà nhà N03T5, Khu Đoàn ngoại giao, Phường Xuân Tảo, Quận Bắc Từ Liêm, Thành phố Hà Nội, Việt Nam.',
+                    'Số 25 Nguyễn Lương Bằng, Tân Phú, Quận 7, Tp. Hồ Chí Minh'
+                  ]}
+                />
               </div>
             </div>
           }
