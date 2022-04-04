@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./FAQ.module.css";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
@@ -6,7 +6,23 @@ import BannerNoAction from "../../Components/Banner/BannerNoAction";
 import Accordition from "./QuestionDemo";
 import banner from "../../assets/image/bannerFAQ.jpg";
 import Card from "./Card";
-function index() {
+function Index() {
+  const [width, setWidth] = useState('w-50')
+  useEffect(() => {
+    const handleResize = () => {
+      if(window.innerWidth < 1024) {
+        setWidth('w-80')
+      } else {
+        setWidth('w-50')
+      }
+    }
+    window.addEventListener('load', handleResize)
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  },[])
   return (
     <>
       <Header />
@@ -57,8 +73,8 @@ function index() {
         Hãy xem chúng tôi có thể giúp gì cho bạn
       </h3>
       <div
-        className="container"
-        style={{ maxWidth: "50vw", marginTop: "35px" }}
+        className={`container ${width}`}
+        style={{ marginTop: "35px" }}
       >
         <Accordition />
       </div>
@@ -69,4 +85,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

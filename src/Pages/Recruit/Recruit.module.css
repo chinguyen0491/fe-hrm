@@ -31,3 +31,7 @@
 .name a:hover {
     color: var(--primary);
 }
+
+.containerHeader {
+    padding-left: 32px !important;
+}

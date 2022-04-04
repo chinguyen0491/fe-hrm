@@ -223,14 +223,14 @@ export default function SimpleAccordion() {
             </AccordionSummary>
             <AccordionDetails>
               {
-                ele.a.map((e,i) => {
-                    return <Accordion key={i}>
+                ele.a.map((e, i) => {
+                  return <Accordion key={i}>
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon sx={{ color: "#f47d20" }} />}
                       aria-controls={`panel${i}a-content`}
                       id={`panel${i}a-header`}
                     >
-                      <h6 className="ms-3" style={{fontSize:"15px"}}><AcUnitIcon sx={{ color: "#f47d20" , fontSize:'15px',margin:'0 8px 7px 0'}}/>{e.title}</h6>
+                      <h6 className="ms-2" style={{ fontSize: "15px" }}><AcUnitIcon sx={{ color: "#f47d20", fontSize: '15px', margin: '0 8px 7px 0' }} />{e.title}</h6>
                     </AccordionSummary>
                     <AccordionDetails>
                       <p>{e.content}</p>

@@ -24,7 +24,7 @@
 .north__detail,
 .south__detail {
     line-height: 1.6;
-    margin: 32px auto;
+    margin: 5vw auto;
     font-size: 15px;
 }
 
@@ -79,7 +79,7 @@
 
 @media (max-width: 48em) {
     .main {
-        padding: 10vw;
+        padding: 5vw;
     }
 
     .footer__title {
@@ -94,7 +94,10 @@
     .north {
         display: flex;
         flex-direction: column;
-        margin-bottom: 10vw;
+    }
+
+    .north iframe {
+        margin: auto;
     }
 
     .south {

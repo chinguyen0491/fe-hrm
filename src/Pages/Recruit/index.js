@@ -64,15 +64,23 @@ function Index() {
     {
       location.search ? <Details /> :<> 
       <Header />
-      <BannerNoAction image={banner} />
+      <BannerNoAction/>
       <div className="container pt-5">
+<<<<<<< HEAD
         <div className="row flex-md-column flex-lg-row">
           <div className="col-sm-12 col-md-12 col-lg-4">
             <Tabs />
           </div>
           <div className="col-lg-8 col-md-12 col-sm-12">
+=======
+        <div className="row">
+          <div className="col-lg-4 col-sm-12 col-md-12">
+            <Tabs />
+          </div>
+          <div className="col-lg-8 col-sm-12 col-md-12">
+>>>>>>> 66b8a074b5049073a3780ad0faae988d424132db
             <div
-              className={`d-flex justify-content-between align-items-center ps-5 pe-4 py-3 ${styles.containerHeader}`}
+              className={`d-flex justify-content-between flex-md-row flex-sm-column align-items-sm-start align-items-center ps-5 pe-4 py-3 ${styles.containerHeader}`}
             >
               <div
                 className={`d-flex justify-content-start align-items-center ${styles.containerHeaderLeft}`}
@@ -93,7 +101,7 @@ function Index() {
                 )}
               </div>
               <div
-                className={`d-flex justify-content-start align-items-center ${styles.containerHeaderRight}`}
+                className={`d-flex justify-content-start align-items-center mt-sm-3 mt-md-0 ${styles.containerHeaderRight}`}
               >
                 <p className="me-3">Xếp theo</p>
                 <SelectPicker
