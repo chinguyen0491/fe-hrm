@@ -11,8 +11,9 @@ import { useForm } from "react-hook-form";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import styles from "./FormRecruit.module.css";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { Link } from "react-router-dom"
-
+import { RecruitContext } from "../../hook/ContextRecruit";
 const steps = [
   {
     label: "Điền đầy đủ thông tin",
@@ -49,13 +50,21 @@ export default function FormRecruit() {
     getValues
   } = useForm({ mode: "onChange" });
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     const values = getValues()
-    console.log(values)
+
     handleNext()
-    alert(JSON.stringify(data));
+    const output = JSON.stringify(values)
+    alert(output)
   };
-  console.log(formState.isValid);
+  const id = useLocation().search.replace('?', '')
+  const { data } = React.useContext(RecruitContext)
+  const currentData = data.find(val => val.id === +id)
+  let title
+  if (currentData) {
+    title = currentData.name.name
+    console.log(title);
+  }
   return (
     <>
       <Header />
@@ -63,6 +72,12 @@ export default function FormRecruit() {
         sx={{ maxWidth: 600 }}
         className={styles.container + " " + styles.bordered}
       >
+        <h5 className="my-3">
+          Tên công việc: {title}
+        </h5>
+        <h5 className="my-3">
+          Người phụ trách:
+        </h5>
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (
             <Step key={step.label}>
@@ -78,9 +93,15 @@ export default function FormRecruit() {
               <StepContent>
                 {index === 0 ? (
                   <form onSubmit={handleSubmit(onSubmit)}>
+                    <input type="hidden" value={id} {...register("id", {
+                      required: true,
+                    })} />
+                    <input type="text" style={{ display: 'none' }} value={title ? title : 'null'} {...register("jobName", {
+                      required: true,
+                    })} />
                     <label>Họ và Tên</label>
                     <input type="text"
-                      {...register("fullName", {
+                      {...register("name", {
                         required: true,
                         pattern: /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s\W|_]+$/i,
                       })}
@@ -139,6 +160,7 @@ export default function FormRecruit() {
                     >
                       Quay lại
                     </Button>
+
                   </div>
                 </Box>
               </StepContent>

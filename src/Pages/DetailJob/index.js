@@ -16,11 +16,10 @@ function Detail() {
   const { data } = useContext(RecruitContext)
   useEffect(() => {
     const findData = data.find(val => {
-      return +id === val.name.id
+      return +id === val.id
     })
     if (findData) {
       setMainData(findData)
-      console.log(findData);
     }
   }, [data])
   return (
