@@ -12,11 +12,11 @@
   width: 40%;
   display: flex;
   flex-direction: column;
-  padding: 20px;
   background-color: #f8fafb;
   position: sticky;
   height: max-content;
   top: 0px;
+  padding: 2rem;
 }
 
 .btn {
@@ -31,67 +31,46 @@
   text-align: center;
   width: 100%;
   cursor: pointer;
+  border-radius: 5px;
 }
 
-.check {
-  display: flex;
+.info{
   padding: 0;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
 }
 
-.check input {
-  width: 20px;
-  margin-right: 20px;
-}
-
-.loca li {
+.info li{
   display: flex;
-  justify-content:flex-start;
-  align-items: center;
-}
-.loca input {
-  width: 25px;
-  margin-right: 35px;
+  font-size: 1rem;
+  margin-bottom: 16px;
 }
 
-li {
-  margin: 20px 0;
+.label{
+  font-size: 1.1rem;
 }
 
-.container2 .ul1 {
+.content__title {
+  font-size: 2rem;
+}
+
+.cotent__desc {
+  font-size: 1rem;
+}
+
+.list {
+  font-size: 1rem;
   padding: 0;
-  list-style: none;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
 }
 
-.label {
-  width:35%;
+.item {
+  display: flex;
+}
+
+.item::before {
+  content: '- ';
+  font-size: 2rem;
+  line-height: 1rem;
   display: inline-block;
-}
-.value {
-  flex: 1;
-}
-
-.check {
-  display: flex;
-}
-
-.container2 {
-  background-color: #f8fafb;
-  padding: 50px;
-}
-
-.cbox {
-  font-size: 18px;
-}
-
-.video {
-  padding-bottom: 35px;
+  position: relative;
+  bottom: -6px;
+  margin-right: 1rem;
 }
