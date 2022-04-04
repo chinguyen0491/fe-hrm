@@ -3,7 +3,6 @@ import styles from "./Recruit.module.css";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import BannerNoAction from "../../Components/Banner/BannerNoAction";
-import banner from "../../assets/image/banner-04.jpg";
 import Tabs from "./Tabs";
 import LineInfor from "./LineInfor";
 import { SelectPicker } from "rsuite";
@@ -12,7 +11,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { useLocation, useHistory } from 'react-router-dom'
 import { RecruitContext } from '../../hook/ContextRecruit'
 import { toSlug } from '../../extensions/toSlug'
-import Details from '../DetailJob'
+import Details from '../DetailJob/Index'
 function Index() {
   let location = useLocation();
   let history = useHistory();

@@ -9,7 +9,6 @@ function BannerNoAction() {
   useEffect(() => {
     const handleResize = () => {
       const checkWidth = window.innerWidth
-      console.log(checkWidth)
       if (checkWidth > 1140) {
         setImg(bannerimage)
       } else if (checkWidth <= 1140 && checkWidth > 768) {

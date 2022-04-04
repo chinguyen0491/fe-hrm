@@ -9,14 +9,14 @@ import Loading from "./Components/Loading/Loading";
 import App from "./App";
 import { RecruitProvider } from './hook/ContextRecruit'
 const PageNotFound = lazy(() => import("./Pages/PageNotFound"));
-const Recruit = lazy(() => import("./Pages/Recruit"));
+const Recruit = lazy(() => import("./Pages/Recruit/Index"));
 const FormRecruit = lazy(() => import("./Pages/FormRecruit/FormRecruit"));
-const FAQs = lazy(() => import("./Pages/FAQs/"));
-const Detail = lazy(() => import("./Pages/DetailJob"))
+const FAQs = lazy(() => import("./Pages/FAQs/Index"));
+const Detail = lazy(() => import("./Pages/DetailJob/Index"))
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <BrowserRouter>
-<RecruitProvider>
+    <RecruitProvider>
       <Suspense fallback={<Loading />}>
         <Switch>
           <Route exact path="/" component={App} />
@@ -28,8 +28,7 @@ ReactDOM.render(
           <Route path="/*" component={PageNotFound} />
         </Switch>
       </Suspense>
-</RecruitProvider>
-
+    </RecruitProvider>
   </BrowserRouter>,
   rootElement
 );

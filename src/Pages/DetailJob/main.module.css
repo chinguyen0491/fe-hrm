@@ -1,53 +1,76 @@
-.info {
-    background-color: #eee;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1em;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 6rem;
+
+.body {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1200px;
+  gap: 0 35px;
+  margin-top: 30px;
+
 }
 
-.info__list {
-    padding: 0;
+.container1{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafb;
+  position: sticky;
+  height: max-content;
+  top: 0px;
+  padding: 2rem;
 }
 
-.info__item {
-    display: flex;
-    min-height: 2.2rem;
+.btn {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #f69102 0%, #fc6e1e 100%);
+  border: 1px solid #f5630c;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.info__item + .info__item {
-    margin-top: 10px;
+.info{
+  padding: 0;
 }
 
-.info__label {
-    width: 50%;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #000;
+.info li{
+  display: flex;
+  font-size: 1rem;
+  margin-bottom: 16px;
 }
 
-.info__content {
-    flex: 1;
-    margin: 0;
-    font-size: 1rem;
-    /* margin-left: 12px; */
+.label{
+  font-size: 1.1rem;
 }
 
-/* =========================== CONTENT CSS =========================== */
-.vid {
-    border-radius: 20px;
-    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+.content__title {
+  font-size: 2rem;
 }
 
-.content__item {
-    display: flex;
+.cotent__desc {
+  font-size: 1rem;
 }
 
-.content__item::before {
-    content: '-';
-    margin-right: 1rem;
+.list {
+  font-size: 1rem;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+}
+
+.item::before {
+  content: '- ';
+  font-size: 2rem;
+  line-height: 1rem;
+  display: inline-block;
+  position: relative;
+  bottom: -6px;
+  margin-right: 1rem;
 }
