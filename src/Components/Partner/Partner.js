@@ -1,12 +1,12 @@
 import React from 'react'
 import Slider from "react-slick";
 import './Partner.css';
-import l1 from '../../assets/image/l1.png'
-import l2 from '../../assets/image/l2.png'
-import l3 from '../../assets/image/l3.png'
-import l4 from '../../assets/image/l4.png'
-import l5 from '../../assets/image/l5.png'
-import l6 from '../../assets/image/l6.png'
+import l1 from '../../assets/image/l1.jpg'
+import l2 from '../../assets/image/l2.jpg'
+import l3 from '../../assets/image/l3.jpg'
+import l4 from '../../assets/image/l4.jpg'
+import l5 from '../../assets/image/l5.jpg'
+import l6 from '../../assets/image/l6.jpg'
 function Partner() {
   const data = [
     {
@@ -33,7 +33,7 @@ function Partner() {
     arrows: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 4000,
@@ -67,7 +67,7 @@ function Partner() {
   };
   let listPartner = data.map((ele, index) => {
     return <div key={index} style={{ padding: "0 20px"}}>
-      <div className="mx-2" style={{ border: '1px solid red', borderRadius: '10px', height: '100px', backgroundImage: `url(${ele.image})`, backgroundSize: '80%', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div>
+      <div className="mx-2" style={{ border: '1px solid red', borderRadius: '10px', height: '100px', backgroundImage: `url(${ele.image})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}></div>
     </div>
   })
   return (
