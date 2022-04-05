@@ -1,7 +1,5 @@
 
-import React, { useContext, useEffect, useState } from "react";
-import MessengerCustomerChat from 'react-messenger-customer-chat';
-
+import React, { useContext, useState } from 'react';
 import "./App.css";
 import { compareSameKey } from "./extensions/compareSameKey";
 import { covertText } from "./extensions/covertText";
@@ -27,8 +25,23 @@ import south from "./assets/image/j3.jpg";
 import factory from "./assets/image/j4.jpg";
 import Partner from "./Components/Partner/Partner";
 import { RecruitContext } from "./hook/ContextRecruit";
+import Signin from "./Pages/Account/SignIn"
+import useToken from './hook/useToken';
+
+function setToken(userToken) {
+  sessionStorage.setItem('access_token', JSON.stringify(userToken));
+}
+
+function getToken() {
+  const tokenString = sessionStorage.getItem('access_token');
+  const userToken = JSON.parse(tokenString);
+  return userToken?.token
+}
+
 function App() {
   const { data } = useContext(RecruitContext);
+  const { token, setToken } = useToken();
+  console.log(token);
   const dataShare = [
     {
       image: c1,
@@ -83,6 +96,11 @@ function App() {
         return south;
     }
   };
+
+  if(!token) {
+    return <Signin setToken={setToken} />
+  }
+
   return (
     <>
       <Header />
@@ -225,10 +243,7 @@ function App() {
       </div>
       <Partner />
       <div className="" style={{ marginTop: "100px" }}>
-        <MessengerCustomerChat
-          pageId="108253341849236"
-          appId="719322076103425"
-        />
+
         <Footer />
       </div>
     </>
