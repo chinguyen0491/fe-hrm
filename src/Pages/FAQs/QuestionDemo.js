@@ -99,7 +99,7 @@ export default function SimpleAccordion() {
     <div className={styles.accordion}>
       {data.map((ele, index) => {
         return (
-          <Accordion key={index}>
+          <Accordion key={index} expanded>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{ color: "#f47d20" }} />}
               aria-controls={`panel${index}a-content`}

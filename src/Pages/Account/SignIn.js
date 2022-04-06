@@ -1,36 +1,49 @@
-import React, { Component, useState  } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
+import React, { Component, useState } from "react";
 import "./Signin.css";
 import styles from "./signin.module.css";
 import logo from "../../assets/image/logo.png";
 import { Helmet } from "react-helmet";
+import axios from "axios";
+import {  setUserSession } from "../../Utils/Common";
 
-async function loginUser(credentials) {
-  return fetch('http://test.diligo.vn:15000/api/auth/token', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(credentials)
-  })
-    .then(data => data.json())
- }
-
-export default function Signin({ setToken }) {
+export default function Signin(props) {
   const [db] = useState("hr_diligo");
-  const [login, setUserName] = useState();
-  const [password, setPassword] = useState();
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const token = await loginUser({
-      db,
-      login,
-      password
-    });
-    setToken(token);
-  }
+  const handleLogin = () => {
+    setError(null);
+    setLoading(true);
+
+    axios
+      .get("http://test.diligo.vn:15000/api/auth/token", {
+        params: { db: "hr_diligo", login: login, password: password },
+      })
+      .then((response) => {
+        setLoading(false);
+        setUserSession(response.data.access_token, response.data.user,response.data.name);
+        props.history.push('/')
+
+        console.log("respone >>>>>>>>", response);
+      })
+      .catch((error) => {
+        setLoading(false);
+        if (
+          error.response.status === 401 ||
+          error.response.status === 400 ||
+          error.response.status === 403
+        ) {
+          setError(error.response.data.message);
+        } else {
+          setError("Something went wrong! Try again later");
+        }
+        console.log("error >>>>>>>>", error);
+        console.log(db, login, password);
+      });
+    // props.history.push('/')
+  };
 
   return (
     <section className="four-zero-four-section version-1">
@@ -47,26 +60,31 @@ export default function Signin({ setToken }) {
             <img className={styles.logo} src={logo} alt="Logo" />
             <h3 className={styles.title + " d-flex mb-5"}>Đăng nhập</h3>
             <div className="d-flex mb-5">
-              <form method="POST" onSubmit={handleSubmit}>
+              <form>
+                <input type="hidden" value="hr_diligo" />
                 <input
                   type="text"
                   className="form__field mb-2"
                   placeholder="Tên đăng nhập"
-                  onChange={e => setUserName(e.target.value)}
+                  value={login}
+                  onChange={(e) => setLogin(e.target.value)}
                 />
                 <input
                   type="password"
                   className="form__field mb-2"
                   placeholder="Mật khẩu"
-                  onChange={e => setPassword(e.target.value)}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
+                {error && <p className={styles.error}>{error}</p>}
                 <div className="btn-submit d-flex justify-content-around">
-                  <button
-                    type="submit"
+                  <input
+                    type="button"
                     className={styles.btn + " " + styles.login}
-                  >
-                    Đăng nhập
-                  </button>
+                    value={loading ? "Đang đăng nhập" : "Đăng nhập"}
+                    disabled={loading}
+                    onClick={handleLogin}
+                  />
                 </div>
               </form>
             </div>
@@ -79,7 +97,3 @@ export default function Signin({ setToken }) {
     </section>
   );
 }
-
-Signin.propTypes = {
-  setToken: PropTypes.func.isRequired,
-};

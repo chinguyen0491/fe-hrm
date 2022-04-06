@@ -2,7 +2,16 @@ import React from "react";
 import styles from "./Recruit.module.css";
 import { Link } from "react-router-dom";
 import { toSlug } from "../../extensions/toSlug";
-function LineInfor({id, name, address, salary, number, deadline, status, index }) {
+function LineInfor({
+  id,
+  name,
+  address,
+  salary,
+  number,
+  deadline,
+  status,
+  index,
+}) {
   return (
     <div>
       <div
@@ -22,7 +31,9 @@ function LineInfor({id, name, address, salary, number, deadline, status, index }
             </Link>
           </h5>
           <p className={`ms-2 ${styles.description}`}>
-            {address.name} | {salary[0] !== 'ltt' ? <>Từ {salary}</> : "Lương thoả thuận"}  | Số lượng {number}
+            {address.name} |{" "}
+            {salary[0] !== "ltt" ? <>Từ {salary}</> : "Lương thoả thuận"} | Số
+            lượng {number}
           </p>
         </div>
         <div

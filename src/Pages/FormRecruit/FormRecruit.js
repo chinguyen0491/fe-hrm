@@ -61,9 +61,11 @@ export default function FormRecruit() {
   const { data } = React.useContext(RecruitContext)
   const currentData = data.find(val => val.id === +id)
   let title
+  let recruiter
   if (currentData) {
     title = currentData.name.name
-    console.log(title);
+    recruiter = currentData.phone_recruiter
+    console.log(title+recruiter);
   }
   return (
     <>
@@ -76,7 +78,7 @@ export default function FormRecruit() {
           Tên công việc: {title}
         </h5>
         <h5 className="my-3">
-          Người phụ trách:
+          Người phụ trách: {recruiter}
         </h5>
         <Stepper activeStep={activeStep} orientation="vertical">
           {steps.map((step, index) => (

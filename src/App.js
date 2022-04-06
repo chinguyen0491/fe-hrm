@@ -25,23 +25,11 @@ import south from "./assets/image/j3.jpg";
 import factory from "./assets/image/j4.jpg";
 import Partner from "./Components/Partner/Partner";
 import { RecruitContext } from "./hook/ContextRecruit";
-import Signin from "./Pages/Account/SignIn"
-import useToken from './hook/useToken';
 
-function setToken(userToken) {
-  sessionStorage.setItem('access_token', JSON.stringify(userToken));
-}
-
-function getToken() {
-  const tokenString = sessionStorage.getItem('access_token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token
-}
 
 function App() {
   const { data } = useContext(RecruitContext);
-  const { token, setToken } = useToken();
-  console.log(token);
+
   const dataShare = [
     {
       image: c1,
@@ -115,11 +103,12 @@ function App() {
         >
           {data.length &&
             compareSameKey(
-              data.map((ele) => ({ title: ele.category, job: ele.name.name }))
+              data.map((ele) => ({id:ele.id, title: ele.category, job: ele.name.name }))
             ).map((ele, index) => {
               return (
                 <div className="col-md-6 col-lg-3 col-sm-12 mt-5" key={index}>
                   <CardDesignFour
+                    id={ele.id}
                     title={covertText(ele.title)}
                     image={imageConfig(ele.title)}
                     dataJob={ele.job}
