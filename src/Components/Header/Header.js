@@ -8,8 +8,8 @@ function HeaderSeconds(props) {
   const token = getToken();
   const names = getName();
   const handleLogout = () => {
-    removeUserSession();
     <Link to="/dang-nhap"/>
+    removeUserSession();
   };
   return (
     <>
@@ -111,9 +111,9 @@ function HeaderSeconds(props) {
                             <a>Thông tin cá nhân</a>
                           </li>
                           <li>
-                            <button
+                            <Link to="/"
                               onClick={handleLogout}
-                            ><b>Đăng xuất</b></button>  
+                            ><b>Đăng xuất</b></Link>  
                           </li>
                         </ul>
                       </div>

@@ -1,4 +1,6 @@
 import React, { Component, useState } from "react";
+import {Link } from 'react-router-dom'
+
 import "./Signin.css";
 import styles from "./signin.module.css";
 import logo from "../../assets/image/logo.png";
@@ -57,7 +59,7 @@ export default function Signin(props) {
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-12 d-flex flex-column">
-            <img className={styles.logo} src={logo} alt="Logo" />
+            <Link to="/" className={styles.logoa}><img className={styles.logo} src={logo} alt="Logo" /></Link>
             <h3 className={styles.title + " d-flex mb-5"}>Đăng nhập</h3>
             <div className="d-flex mb-5">
               <form>

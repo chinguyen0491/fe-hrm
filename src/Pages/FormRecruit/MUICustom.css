@@ -1,0 +1,10 @@
+.MuiSvgIcon-root.Mui-active,.Mui-completed>path{
+    color: red!important;
+}
+
+.MuiButton-root.MuiButtonBase-root[type=submit]{
+    background-color: red;
+}
+.MuiButton-root.MuiButtonBase-root[type=button]{
+    color: red;
+}

@@ -15,10 +15,11 @@ export default function SimpleAccordion() {
 
   return (
     <div className={"recruit position-sticky"} style={{ top: "80px" }}>
-      {console.log(data)}
       {compareSameKey(
-        data.map((ele) => ({ title: ele.category, job: ele.industry }))
-      ).map((ele, index) => {
+              data.map((ele) => {
+                return {cate: ele.category,job: {id:ele.id, name: ele.name.name}  }
+              })
+            ).map((ele, index) => {
         return (
           <Accordion key={index}>
             <AccordionSummary
@@ -26,15 +27,15 @@ export default function SimpleAccordion() {
               aria-controls={`panel${index}a-content`}
               id={`panel${index}a-header`}
             >
-              <h5 className="ms-3">{covertText(ele.title)}</h5>
+              <h5 className="ms-3">{covertText(ele.category)}</h5>
             </AccordionSummary>
             <AccordionDetails>
               {ele.job.map((e, i) => {
                 return (
                   <h6
                     onClick={() => {
-                      setCategory(e);
-                      history.push(`/tuyen-dung/${toSlug(e)}`);
+                      setCategory(e.name);
+                      history.push(`/tuyen-dung/${toSlug(e.name)}`);
                     }}
                     className={`ms-3 d-block ${styles.link}`}
                     style={{
@@ -44,7 +45,7 @@ export default function SimpleAccordion() {
                     }}
                     key={i}
                   >
-                    {e}
+                    {e.name}
                   </h6>
                 );
               })}

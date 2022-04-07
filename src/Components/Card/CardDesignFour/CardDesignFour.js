@@ -2,7 +2,8 @@ import React from "react";
 import styles from "./CardDesignFour.module.css";
 import { Link } from "react-router-dom";
 import { toSlug } from "../../../extensions/toSlug";
-function CardDesignFour({ id, image, title, dataJob }) {
+function CardDesignFour({id, image, title, dataJob }) {
+  console.log(dataJob)
   return (
     <div>
       <div
@@ -25,16 +26,18 @@ function CardDesignFour({ id, image, title, dataJob }) {
                   <Link
                     className={styles.link}
                     to={{
-                      pathname: `/tuyen-dung/${toSlug(ele)}`,
+                      pathname: `/tuyen-dung/${toSlug(ele.name)}`,
                       search: `${ele.id}`,
                       state: { fromDashboard: true },
                     }}
                   >
-                    {ele}
+                    {ele.name}
                   </Link>
                 </li>
               );
             })}
+            
+           {/* { console.log(dataJob)} */}
         </ul>
         <Link className={styles.link} to="/tuyen-dung">
           (Xem thêm)

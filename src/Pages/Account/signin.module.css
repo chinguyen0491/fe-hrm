@@ -29,3 +29,9 @@
 .error{
     color: red!important;
 }
+.logoa{
+    border: none!important;
+    display: block!important;
+    background: none!important;
+    max-width: none!important;
+}

@@ -103,14 +103,17 @@ function App() {
         >
           {data.length &&
             compareSameKey(
-              data.map((ele) => ({id:ele.id, title: ele.category, job: ele.name.name }))
+              data.map((ele) => {
+                return {cate: ele.category,job: {id:ele.id, name: ele.name.name}  }
+              })
             ).map((ele, index) => {
+              console.log(ele)
               return (
                 <div className="col-md-6 col-lg-3 col-sm-12 mt-5" key={index}>
                   <CardDesignFour
-                    id={ele.id}
-                    title={covertText(ele.title)}
-                    image={imageConfig(ele.title)}
+                    id={ele.job.id}
+                    title={covertText(ele.category)}
+                    image={imageConfig(ele.category)}
                     dataJob={ele.job}
                   />
                 </div>

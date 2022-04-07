@@ -15,6 +15,7 @@ import Details from '../DetailJob'
 function Index() {
   let location = useLocation();
   let history = useHistory();
+
   const { data, category, setCategory, setKeySearch, keySearch } = useContext(RecruitContext)
   const sortOptions = [
     {
@@ -116,7 +117,7 @@ function Index() {
                     />
                   </div>
                 </div>
-                {dataHandle.map((ele, index) => {
+                {data.map((ele, index) => {
                   return (
                     <LineInfor
                       name={ele.name}
