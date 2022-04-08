@@ -21,9 +21,6 @@ function Detail() {
       setMainData(findData);
     }
   }, [data]);
-  if(mainData) {
-    console.log(mainData.require);
-  }
   return (
     <>
       <Header />

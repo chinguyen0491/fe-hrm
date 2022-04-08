@@ -15,7 +15,6 @@ import Details from '../DetailJob'
 function Index() {
   let location = useLocation();
   let history = useHistory();
-
   const { data, category, setCategory, setKeySearch, keySearch } = useContext(RecruitContext)
   const sortOptions = [
     {
@@ -39,7 +38,9 @@ function Index() {
   const [dataHandle, setDataHandle] = useState([]);
   React.useEffect(() => {
     setDataHandle(
-      keySearch === '' ? data : data.filter((o) => toSlug(o.industry.name) === keySearch)
+      keySearch === '' ? data : data.filter((o) => {
+        return toSlug(o.industry) === keySearch
+      })
     );
   }, [keySearch, data]);
 
@@ -119,6 +120,7 @@ function Index() {
                 </div>
                 <div className="mb-5">
                   {dataHandle.map((ele, index) => {
+                    console.log(ele)
                     return (
                       <LineInfor
                         name={ele.name}
