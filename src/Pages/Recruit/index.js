@@ -15,7 +15,6 @@ import Details from '../DetailJob'
 function Index() {
   let location = useLocation();
   let history = useHistory();
-
   const { data, category, setCategory, setKeySearch, keySearch } = useContext(RecruitContext)
   const sortOptions = [
     {
@@ -38,8 +37,11 @@ function Index() {
   const [optionSort, setOptionSort] = useState("");
   const [dataHandle, setDataHandle] = useState([]);
   React.useEffect(() => {
+    console.log('"', keySearch, '"')
     setDataHandle(
-      keySearch === '' ? data : data.filter((o) => toSlug(o.industry.name) === keySearch)
+      keySearch.trim() === '' ? data : data.filter((o) => {
+        return toSlug(o.industry) === keySearch
+      })
     );
   }, [keySearch, data]);
 
@@ -48,15 +50,15 @@ function Index() {
       setDataHandle(sortByKey(dataHandle, optionSort));
     } else {
       setDataHandle(
-        keySearch === "/tuyen-dung"
+        keySearch === "/tuyen-dung" || keySearch === ""
           ? data
-          : data.filter((o) => toSlug(o.industry.name) === keySearch)
+          : data.filter((o) => toSlug(o.industry) === keySearch)
       );
     }
     // eslint-disable-next-line
-  }, [optionSort, data]);
+  }, [optionSort, data, keySearch]);
   React.useEffect(() => {
-    setKeySearch(location.pathname.replace('/tuyen-dung/', ''))
+    setKeySearch(location.pathname.replace('/tuyen-dung/', '').trim())
   }, [location, setKeySearch])
   data.find(x => toSlug(x.industry.name) === location.pathname.replace('/tuyen-dung/', '')) && setCategory(data.find(x => toSlug(x.industry.name) === location.pathname.replace('/tuyen-dung/', '')).industry.name)
   return (
@@ -65,17 +67,17 @@ function Index() {
         location.search ? <Details /> : <>
           <Header />
           <BannerNoAction />
-          <div className="container pt-5 ">
-            <div className="row flex-md-column flex-lg-row">
-              <div className="col-sm-12 col-md-12 col-lg-4">
+          <div className="container">
+            <div className="row flex-md-column flex-lg-row mx-auto">
+              <div className="col-sm-12 col-md-12 col-lg-4 pt-md-4 pt-sm-2 ">
                 <Tabs />
               </div>
               <div className="col-lg-8 col-md-12 col-sm-12">
                 <div
-                  className={`d-flex justify-content-between flex-md-row flex-sm-column-reverse align-items-md-center align-items-sm-start align-items-center ps-5 pe-4 py-3 ${styles.containerHeader}`}
+                  className={`d-flex flex-wrap  justify-content-between flex-md-row flex-sm-column-reverse align-items-md-center align-items-sm-start align-items-center ps-5 pe-4 py-3 ${styles.containerHeader}`}
                 >
                   <div
-                    className={`d-flex my-sm-3 justify-content-start align-items-center ${styles.containerHeaderLeft}`}
+                    className={`d-flex my-sm-3 justify-content-start align-items-center mb-3 ${styles.containerHeaderLeft}`}
                   >
                     <p className="me-3">
                       Có <strong>{dataHandle.length}</strong> việc làm
@@ -93,7 +95,7 @@ function Index() {
                     )}
                   </div>
                   <div
-                    className={`d-flex justify-content-start align-items-center mt-sm-0 ${styles.containerHeaderRight}`}
+                    className={`d-flex justify-content-start align-items-center ${styles.containerHeaderRight}`}
                   >
                     <p className="me-3">Xếp theo</p>
                     <SelectPicker
@@ -117,28 +119,30 @@ function Index() {
                     />
                   </div>
                 </div>
-                {data.map((ele, index) => {
-                  return (
-                    <LineInfor
-                      name={ele.name}
-                      address={ele.address}
-                      salary={ele.salary}
-                      number={ele.number}
-                      deadline={ele.deadline}
-                      status={ele.status}
-                      link={ele.link}
-                      key={index}
-                      index={index}
-                      id={ele.id}
-                    />
-                  );
-                })}
+                <div className="mb-5">
+                  {dataHandle.map((ele, index) => {
+                    return (
+                      <LineInfor
+                        name={ele.name}
+                        address={ele.address}
+                        salary={ele.salary}
+                        number={ele.number}
+                        deadline={ele.deadline}
+                        status={ele.status}
+                        link={ele.link}
+                        key={index}
+                        index={index}
+                        id={ele.id}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div >
-          <div className="mt-5 pt-5">
-            <Footer />
-          </div></>}
+          <Footer />
+        </>
+      }
     </>
   );
 }

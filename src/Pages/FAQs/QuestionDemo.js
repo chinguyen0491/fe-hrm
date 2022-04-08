@@ -52,7 +52,7 @@ export default function SimpleAccordion() {
       ],
     },
     {
-      q: "Thông tin về công ty",
+      q: "Tuyệt",
       a: [
         {
           title: "Vì sao hồ sơ của tôi có tình trạng Hồ sơ không phù hợp?",
@@ -99,24 +99,23 @@ export default function SimpleAccordion() {
     <div className={styles.accordion}>
       {data.map((ele, index) => {
         return (
-          <Accordion key={index} expanded>
+          <Accordion key={index}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{ color: "#f47d20" }} />}
-              aria-controls={`panel${index}a-content`}
-              id={`panel${index}a-header`}
             >
               <h5 className="ms-3">{ele.q}</h5>
             </AccordionSummary>
             <AccordionDetails>
               {
                 ele.a.map((e, i) => {
-                  return <Accordion key={i}>
+                  return <Accordion key={i} sx={{ willChange: 'auto', scrollBehavior: 'smooth' }}>
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon sx={{ color: "#f47d20" }} />}
-                      aria-controls={`panel${i}a-content`}
-                      id={`panel${i}a-header`}
                     >
-                      <h6 className="ms-2" style={{ fontSize: "15px" }}><AcUnitIcon sx={{ color: "#f47d20", fontSize: '15px', margin: '0 8px 7px 0' }} />{e.title}</h6>
+                      <h6 className="ms-2 d-flex" style={{ fontSize: "15px" }}>
+                        <AcUnitIcon sx={{ color: "#f47d20", fontSize: '15px', margin: '0 8px 7px 0' }} />
+                        {e.title}
+                      </h6>
                     </AccordionSummary>
                     <AccordionDetails>
                       <p>{e.content}</p>

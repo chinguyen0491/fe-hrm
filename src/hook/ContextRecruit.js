@@ -17,7 +17,6 @@ const RecruitContext = createContext("")
       isMounted = false
     }
   }, []);
-
   const value = {
     data,
     category,

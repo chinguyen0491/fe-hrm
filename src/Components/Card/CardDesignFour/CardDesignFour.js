@@ -3,7 +3,6 @@ import styles from "./CardDesignFour.module.css";
 import { Link } from "react-router-dom";
 import { toSlug } from "../../../extensions/toSlug";
 function CardDesignFour({id, image, title, dataJob }) {
-  console.log(dataJob)
   return (
     <div>
       <div

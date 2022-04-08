@@ -29,7 +29,6 @@ import { RecruitContext } from "./hook/ContextRecruit";
 
 function App() {
   const { data } = useContext(RecruitContext);
-
   const dataShare = [
     {
       image: c1,
@@ -95,7 +94,7 @@ function App() {
       <BannerNoAction />
       <div className="container" style={{ marginTop: "-100px" }}>
         <div
-          className="row p-5 mx-auto"
+          className="row p-sm-3 p-lg-5 mx-auto"
           style={{
             backgroundColor: "#fff",
             boxShadow: "rgb(0 0 0 / 10%) 0 7px 7px",
@@ -104,10 +103,9 @@ function App() {
           {data.length &&
             compareSameKey(
               data.map((ele) => {
-                return {cate: ele.category,job: {id:ele.id, name: ele.name.name}  }
+                return { cate: ele.category, job: { id: ele.id, name: ele.name.name }, industry: ele.industry }
               })
             ).map((ele, index) => {
-              console.log(ele)
               return (
                 <div className="col-md-6 col-lg-3 col-sm-12 mt-5" key={index}>
                   <CardDesignFour
@@ -121,9 +119,9 @@ function App() {
             })}
         </div>
       </div>
-      <div className="container" style={{ marginTop: "100px" }}>
-        <div className="row" style={{ minHeight: "350px" }}>
-          <div className="col-sm-12 col-md-12 col-lg-6 p-3">
+      <div className="container p-0" style={{ marginTop: "100px" }}>
+        <div className="row mx-auto" style={{ minHeight: "350px" }}>
+          <div className="col-sm-12 col-md-12 col-lg-6">
             <div className="" style={{ backgroundColor: "#ebeff0" }}>
               <h6 className="text-center p-3 text-uppercase">
                 Thông điệp chào mừng ban lãnh đạo
@@ -139,7 +137,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="col-sm-12 col-md-12 col-lg-6 p-3">
+          <div className="col-sm-12 col-md-12 col-lg-6">
             <div className="" style={{ backgroundColor: "#ebeff0" }}>
               <h6 className="text-center p-3 text-uppercase">
                 Vinh danh nhân sự tiêu biểu
@@ -195,11 +193,11 @@ function App() {
         </div>
         <h3
           className="text-center title"
-          style={{ marginTop: "100px", marginBottom: "100px" }}
+          style={{ marginTop: '5rem' }}
         >
           Điều gì hấp dẫn ở Diligo Holdings đang chờ đón bạn
         </h3>
-        <div className="row">
+        <div className="row mx-auto">
           {dataCard.map((ele, index) => {
             return (
               <div
@@ -213,10 +211,10 @@ function App() {
         </div>
       </div>
       <div className="container">
-        <h3 className="text-center title" style={{ margin: "100px 0" }}>
+        <h3 className="text-center title" style={{ margin: "5rem 0 0" }}>
           Góc chia sẻ
         </h3>
-        <div className="row mt-5">
+        <div className="row mx-auto">
           {dataShare.map((ele, index) => {
             return (
               <div
