@@ -15,7 +15,6 @@ import Details from '../DetailJob'
 function Index() {
   let location = useLocation();
   let history = useHistory();
-
   const { data, category, setCategory, setKeySearch, keySearch } = useContext(RecruitContext)
   const sortOptions = [
     {
@@ -38,8 +37,11 @@ function Index() {
   const [optionSort, setOptionSort] = useState("");
   const [dataHandle, setDataHandle] = useState([]);
   React.useEffect(() => {
+    console.log('"', keySearch, '"')
     setDataHandle(
-      keySearch === '' ? data : data.filter((o) => toSlug(o.industry.name) === keySearch)
+      keySearch.trim() === '' ? data : data.filter((o) => {
+        return toSlug(o.industry) === keySearch
+      })
     );
   }, [keySearch, data]);
 
@@ -48,15 +50,15 @@ function Index() {
       setDataHandle(sortByKey(dataHandle, optionSort));
     } else {
       setDataHandle(
-        keySearch === "/tuyen-dung"
+        keySearch === "/tuyen-dung" || keySearch === ""
           ? data
-          : data.filter((o) => toSlug(o.industry.name) === keySearch)
+          : data.filter((o) => toSlug(o.industry) === keySearch)
       );
     }
     // eslint-disable-next-line
-  }, [optionSort, data]);
+  }, [optionSort, data, keySearch]);
   React.useEffect(() => {
-    setKeySearch(location.pathname.replace('/tuyen-dung/', ''))
+    setKeySearch(location.pathname.replace('/tuyen-dung/', '').trim())
   }, [location, setKeySearch])
   data.find(x => toSlug(x.industry.name) === location.pathname.replace('/tuyen-dung/', '')) && setCategory(data.find(x => toSlug(x.industry.name) === location.pathname.replace('/tuyen-dung/', '')).industry.name)
   return (

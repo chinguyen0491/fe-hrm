@@ -2,9 +2,6 @@ import React from "react";
 import styles from "./main.module.css";
 
 function ContentItem({ title, desc, content }) {
-    console.log('====================================');
-    console.log(content);
-    console.log('====================================');
   let newDesc = desc;
   // let newDesc = desc ? desc.replace(/<\/?[^>]+(>|$)/g, "") : undefined
   if (newDesc) {

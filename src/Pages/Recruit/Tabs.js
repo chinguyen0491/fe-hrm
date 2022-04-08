@@ -16,10 +16,10 @@ export default function SimpleAccordion() {
   return (
     <div className={"recruit position-sticky"} style={{ top: "80px" }}>
       {compareSameKey(
-              data.map((ele) => {
-                return {cate: ele.category,job: {id:ele.id, name: ele.name.name}  }
-              })
-            ).map((ele, index) => {
+        data.map((ele) => {
+          return { cate: ele.category, job: { id: ele.id, name: ele.name.name }, industry: ele.industry }
+        })
+      ).map((ele, index) => {
         return (
           <Accordion key={index}>
             <AccordionSummary
@@ -30,24 +30,26 @@ export default function SimpleAccordion() {
               <h5 className="ms-3">{covertText(ele.category)}</h5>
             </AccordionSummary>
             <AccordionDetails>
-              {ele.job.map((e, i) => {
-                return (
-                  <h6
-                    onClick={() => {
-                      setCategory(e.name);
-                      history.push(`/tuyen-dung/${toSlug(e.name)}`);
-                    }}
-                    className={`ms-3 d-block ${styles.link}`}
-                    style={{
-                      cursor: "pointer",
-                      fontSize: "15px",
-                      lineHeight: "30px",
-                    }}
-                    key={i}
-                  >
-                    {e.name}
-                  </h6>
-                );
+              {ele.industry.map((e, i) => {
+                if (e !== "") {
+                  return (
+                    <h6
+                      onClick={() => {
+                        setCategory(e);
+                        history.push(`/tuyen-dung/${toSlug(e)}`);
+                      }}
+                      className={`ms-5 d-block ${styles.link}`}
+                      style={{
+                        cursor: "pointer",
+                        fontSize: "15px",
+                        lineHeight: "30px",
+                      }}
+                      key={i}
+                    >
+                      + {e}
+                    </h6>
+                  );
+                }
               })}
             </AccordionDetails>
           </Accordion>

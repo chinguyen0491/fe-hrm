@@ -38,7 +38,7 @@ function Info({ mainData }) {
                             Ngành:
                         </span>
                         <span className={styles.value}>
-                            <strong>{mainData.industry.name}</strong>
+                            <strong>{mainData.industry}</strong>
                         </span>
                     </li>
                     <li>
