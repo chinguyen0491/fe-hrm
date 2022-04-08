@@ -20,7 +20,6 @@ function Banner1() {
         }
     }
     useEffect(() => {
-        console.log(data)
     }, [data])
     return (
         <div className={styles.banner}>

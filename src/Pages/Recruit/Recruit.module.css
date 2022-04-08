@@ -37,10 +37,15 @@
 
 .name {
     margin-bottom: 1rem;
+    width: max-content;
 }
 
 .name a {
     transition: all 0.2 ease;
+}
+
+.description{
+    width: max-content;
 }
 
 .name a:hover {

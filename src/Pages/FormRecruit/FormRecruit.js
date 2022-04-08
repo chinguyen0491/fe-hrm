@@ -54,26 +54,13 @@ export default function FormRecruit() {
 
     handleNext();
     const output = JSON.stringify(values);
-    console.log(output);
     axios
       .post("http://test.diligo.vn:15000/api/v1/recruitment/apply", {
-        params: data,
+        params: output,
       })
       .then((response) => {
-        console.log("respone >>>>>>>>", response);
+        console.log(response);
       })
-      .catch((error) => {
-        if (
-          error.response.status === 401 ||
-          error.response.status === 400 ||
-          error.response.status === 403
-        ) {
-          setError(error.response.data.message);
-        } else {
-          setError("Something went wrong! Try again later");
-        }
-        console.log("error >>>>>>>>", error);
-      });
     // props.history.push('/')
   };
   const id = useLocation().search.replace("?", "");
@@ -82,7 +69,6 @@ export default function FormRecruit() {
   let title;
   if (currentData) {
     title = currentData.name.name;
-    console.log(title);
   }
   return (
     <>

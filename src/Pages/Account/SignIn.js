@@ -27,8 +27,6 @@ export default function Signin(props) {
         setLoading(false);
         setUserSession(response.data.access_token, response.data.user,response.data.name);
         props.history.push('/')
-
-        console.log("respone >>>>>>>>", response);
       })
       .catch((error) => {
         setLoading(false);
@@ -41,7 +39,6 @@ export default function Signin(props) {
         } else {
           setError("Something went wrong! Try again later");
         }
-        console.log("error >>>>>>>>", error);
       });
     // props.history.push('/')
   };

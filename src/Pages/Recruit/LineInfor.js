@@ -26,6 +26,7 @@ function LineInfor({
                 search: `${id}`,
                 state: { fromDashboard: true },
               }}
+              
             >
               {index + 1}. {name.name}
             </Link>

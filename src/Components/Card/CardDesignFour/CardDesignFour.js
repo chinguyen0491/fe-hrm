@@ -36,7 +36,6 @@ function CardDesignFour({id, image, title, dataJob }) {
               );
             })}
             
-           {/* { console.log(dataJob)} */}
         </ul>
         <Link className={styles.link} to="/tuyen-dung">
           (Xem thêm)

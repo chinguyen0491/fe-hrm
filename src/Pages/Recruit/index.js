@@ -37,7 +37,6 @@ function Index() {
   const [optionSort, setOptionSort] = useState("");
   const [dataHandle, setDataHandle] = useState([]);
   React.useEffect(() => {
-    console.log('"', keySearch, '"')
     setDataHandle(
       keySearch.trim() === '' ? data : data.filter((o) => {
         return toSlug(o.industry) === keySearch

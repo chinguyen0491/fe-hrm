@@ -47,13 +47,13 @@ function Footer() {
                         <ul className={styles.social__list}>
                             <li className={styles.social__item}>
                                 <p>Website</p>
-                                <a href="/" className={styles.social__link}>
+                                <a href="http://diligo.vn/" className={styles.social__link}>
                                     <i className="fa-brands fa-dribbble"></i>
                                 </a>
                             </li>
                             <li className={styles.social__item}>
                                 <p>Facebook</p>
-                                <a href="/" className={styles.social__link}>
+                                <a href="https://www.facebook.com/diligoholingsjsc" className={styles.social__link}>
                                     <i className="fa-brands fa-facebook"></i>
                                 </a>
                             </li>

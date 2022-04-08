@@ -2,8 +2,8 @@
     color: red!important;
 }
 
-.MuiButton-root.MuiButtonBase-root[type=submit]{
-    background-color: red;
+.MuiButton-root.MuiButtonBase-root[type=submit]:not(:disabled){
+    background:red !important;
 }
 .MuiButton-root.MuiButtonBase-root[type=button]{
     color: red;

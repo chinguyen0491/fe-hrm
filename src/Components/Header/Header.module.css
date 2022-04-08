@@ -1,10 +1,22 @@
 .toggleUser {
   height: 0px;
   transition: .5s ease-out;
-  background-color: #fff;
+  background-color: rgb(172, 172, 172);
 }
 
 .toggleUser:hover,
 .uid:hover ~ .toggleUser {
-  height: 100px !important;
+  text-align: right;
+  padding: .2rem 0 0 0;
+  width: 100%;
+  height: auto !important;
+  box-shadow: 0 8px 20px rgb(201, 201, 201);
+}
+.toggleUser >li{
+  color: red;
+  padding: .5rem .2rem;
+}
+.toggleUser >li:hover{
+  cursor: pointer;
+  background-color: #fff;
 }
