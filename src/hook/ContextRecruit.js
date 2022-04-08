@@ -1,12 +1,12 @@
 import React, { useState, createContext } from 'react'
 const RecruitContext = createContext("")
-function RecruitProvider({ children }) {
+ function RecruitProvider({ children }) {
   const [data, setData] = useState([])
   const [category, setCategory] = useState('')
   const [keySearch, setKeySearch] = useState('')
-  React.useEffect(() => {
+  React.useEffect(async () => {
     let isMounted = true;
-    fetch(`http://test.diligo.vn:15000/api/v1/recruitment`)
+    await fetch(`http://test.diligo.vn:15000/api/v1/recruitment`)
       .then((results) => results.json())
       .then((data) => {
         if (isMounted) {

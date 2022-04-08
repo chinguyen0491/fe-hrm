@@ -15,6 +15,7 @@ import Details from '../DetailJob'
 function Index() {
   let location = useLocation();
   let history = useHistory();
+
   const { data, category, setCategory, setKeySearch, keySearch } = useContext(RecruitContext)
   const sortOptions = [
     {

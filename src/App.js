@@ -1,7 +1,5 @@
 
-import React, { useContext, useEffect, useState } from "react";
-import MessengerCustomerChat from 'react-messenger-customer-chat';
-
+import React, { useContext, useState } from 'react';
 import "./App.css";
 import { compareSameKey } from "./extensions/compareSameKey";
 import { covertText } from "./extensions/covertText";
@@ -27,9 +25,10 @@ import south from "./assets/image/j3.jpg";
 import factory from "./assets/image/j4.jpg";
 import Partner from "./Components/Partner/Partner";
 import { RecruitContext } from "./hook/ContextRecruit";
+
+
 function App() {
   const { data } = useContext(RecruitContext);
-  
   const dataShare = [
     {
       image: c1,
@@ -84,6 +83,11 @@ function App() {
         return south;
     }
   };
+
+  // if(!token) {
+  //   return <Signin setToken={setToken} />
+  // }
+
   return (
     <>
       <Header />
@@ -98,13 +102,17 @@ function App() {
         >
           {data.length &&
             compareSameKey(
-              data.map((ele) => ({ title: ele.category, job: ele.name.name }))
+              data.map((ele) => {
+                return {cate: ele.category,job: {id:ele.id, name: ele.name.name}  }
+              })
             ).map((ele, index) => {
+              console.log(ele)
               return (
                 <div className="col-md-6 col-lg-3 col-sm-12 mt-5" key={index}>
                   <CardDesignFour
-                    title={covertText(ele.title)}
-                    image={imageConfig(ele.title)}
+                    id={ele.job.id}
+                    title={covertText(ele.category)}
+                    image={imageConfig(ele.category)}
                     dataJob={ele.job}
                   />
                 </div>
@@ -226,10 +234,7 @@ function App() {
       </div>
       <Partner />
       <div className="" style={{ marginTop: "100px" }}>
-        <MessengerCustomerChat
-          pageId="108253341849236"
-          appId="719322076103425"
-        />
+
         <Footer />
       </div>
     </>

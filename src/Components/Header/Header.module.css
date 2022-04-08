@@ -1,0 +1,10 @@
+.toggleUser {
+  height: 0px;
+  transition: .5s ease-out;
+  background-color: #fff;
+}
+
+.toggleUser:hover,
+.uid:hover ~ .toggleUser {
+  height: 100px !important;
+}

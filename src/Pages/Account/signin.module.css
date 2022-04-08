@@ -1,7 +1,7 @@
 .btn{
     margin-top: 2rem;
-    padding: 1.6rem;
-    border-radius: 2.4rem;
+    padding: .8rem;
+    border-radius: .8rem;
 }
 
 .login{
@@ -24,4 +24,14 @@
 
 .link{
     padding: 0;
+}
+
+.error{
+    color: red!important;
+}
+.logoa{
+    border: none!important;
+    display: block!important;
+    background: none!important;
+    max-width: none!important;
 }

@@ -2,7 +2,16 @@ import React from "react";
 import styles from "./Recruit.module.css";
 import { Link } from "react-router-dom";
 import { toSlug } from "../../extensions/toSlug";
-function LineInfor({ id, name, address, salary, number, deadline, status, index }) {
+function LineInfor({
+  id,
+  name,
+  address,
+  salary,
+  number,
+  deadline,
+  status,
+  index,
+}) {
   return (
     <div>
       <div
