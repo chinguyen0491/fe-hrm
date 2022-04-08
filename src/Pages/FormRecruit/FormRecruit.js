@@ -54,9 +54,10 @@ export default function FormRecruit() {
 
     handleNext();
     const output = JSON.stringify(values);
+    console.log(output);
     axios
       .post("http://test.diligo.vn:15000/api/v1/recruitment/apply", {
-        params: register,
+        params: data,
       })
       .then((response) => {
         console.log("respone >>>>>>>>", response);
@@ -110,7 +111,7 @@ export default function FormRecruit() {
                     <input
                       type="hidden"
                       value={id}
-                      {...register("id", {
+                      {...register("job_id", {
                         required: true,
                       })}
                     />
@@ -118,7 +119,7 @@ export default function FormRecruit() {
                       type="text"
                       style={{ display: "none" }}
                       value={title ? title : "null"}
-                      {...register("jobName", {
+                      {...register("job_name", {
                         required: true,
                       })}
                     />

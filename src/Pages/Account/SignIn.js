@@ -42,7 +42,6 @@ export default function Signin(props) {
           setError("Something went wrong! Try again later");
         }
         console.log("error >>>>>>>>", error);
-        console.log(db, login, password);
       });
     // props.history.push('/')
   };

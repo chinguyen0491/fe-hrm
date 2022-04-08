@@ -154,12 +154,11 @@
   .four-zero-four-section.version-1 a {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 48px;
+    align-items: center; 
     padding: 0 0;
     background: var(--primary);
     max-width: 151px;
-    margin: 40px auto 120px auto;
+    margin: 40px auto 0 auto;
     border-radius: 40px;
     color: #fff;
     text-decoration: none !important;
