@@ -17,7 +17,7 @@ function RecruitProvider({ children }) {
       isMounted = false
     }
   }, []);
-
+console.log(data)
   const value = {
     data,
     category,
