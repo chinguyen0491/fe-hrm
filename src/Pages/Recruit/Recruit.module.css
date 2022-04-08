@@ -1,37 +1,66 @@
 .container {
     border-bottom: 1px solid #a3a4a8;
 }
+
 .tag {
-    padding: 4px 18px 5px;
+    padding: 4px 30px;
     background-color: #ed1b24;
     font-size: 14px;
     color: #fff;
     border-radius: 29px;
+    display: flex;
+    justify-content: center;
+    height: min-content;
+    align-items: center;
 }
+
 .title {
     font-weight: 700;
 }
+
 .link {
     transition: all 0.2s ease-out;
-    font-size:17px;
+    font-size: 17px;
 }
+
 .link:hover {
-    color:var(--primary);
+    color: var(--primary);
     font-weight: 700;
 }
+
 .filterTag {
     background-color: #ffedb2e3;
     padding: 5px 15px;
     font-size: 12px;
     border-radius: 5px;
 }
-.name a{
+
+.name {
+    margin-bottom: 1rem;
+}
+
+.name a {
     transition: all 0.2 ease;
 }
+
 .name a:hover {
     color: var(--primary);
 }
 
 .containerHeader {
     padding-left: 32px !important;
+}
+
+.tag__title {
+    font-size: 1rem;
+    line-height: 1rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: .5rem;
+}
+
+@media (max-width: 48.5em) {
+    .tag__title {
+        margin-bottom: 0;
+    }
 }
