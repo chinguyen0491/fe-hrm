@@ -37,8 +37,9 @@ function Index() {
   const [optionSort, setOptionSort] = useState("");
   const [dataHandle, setDataHandle] = useState([]);
   React.useEffect(() => {
+    console.log('"', keySearch, '"')
     setDataHandle(
-      keySearch === '' ? data : data.filter((o) => {
+      keySearch.trim() === '' ? data : data.filter((o) => {
         return toSlug(o.industry) === keySearch
       })
     );
@@ -49,15 +50,15 @@ function Index() {
       setDataHandle(sortByKey(dataHandle, optionSort));
     } else {
       setDataHandle(
-        keySearch === "/tuyen-dung"
+        keySearch === "/tuyen-dung" || keySearch === ""
           ? data
-          : data.filter((o) => toSlug(o.industry.name) === keySearch)
+          : data.filter((o) => toSlug(o.industry) === keySearch)
       );
     }
     // eslint-disable-next-line
-  }, [optionSort, data]);
+  }, [optionSort, data, keySearch]);
   React.useEffect(() => {
-    setKeySearch(location.pathname.replace('/tuyen-dung/', ''))
+    setKeySearch(location.pathname.replace('/tuyen-dung/', '').trim())
   }, [location, setKeySearch])
   data.find(x => toSlug(x.industry.name) === location.pathname.replace('/tuyen-dung/', '')) && setCategory(data.find(x => toSlug(x.industry.name) === location.pathname.replace('/tuyen-dung/', '')).industry.name)
   return (
@@ -120,7 +121,6 @@ function Index() {
                 </div>
                 <div className="mb-5">
                   {dataHandle.map((ele, index) => {
-                    console.log(ele)
                     return (
                       <LineInfor
                         name={ele.name}
