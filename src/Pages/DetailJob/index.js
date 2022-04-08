@@ -21,6 +21,9 @@ function Detail() {
       setMainData(findData);
     }
   }, [data]);
+  if(mainData) {
+    console.log(mainData.require);
+  }
   return (
     <>
       <Header />
@@ -43,13 +46,13 @@ function Detail() {
                   muted
                 />
               </div>
-              {mainData.description && (
+              {mainData.description && mainData.description.replace(/<[^>]*>?/gm, '').trim() !== ""  && (
                 <ContentItem
                   title={"Mô tả công việc"}
                   desc={mainData.description}
                 />
               )}
-              {mainData.require && (
+              {mainData.require && mainData.require.replace(/<[^>]*>?/gm, '').trim() !== "" && (
                 <ContentItem
                   title={"Yêu cầu công việc"}
                   desc={mainData.require}

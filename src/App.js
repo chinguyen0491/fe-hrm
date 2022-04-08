@@ -103,10 +103,9 @@ function App() {
           {data.length &&
             compareSameKey(
               data.map((ele) => {
-                return {cate: ele.category,job: {id:ele.id, name: ele.name.name}  }
+                return { cate: ele.category, job: { id: ele.id, name: ele.name.name }, industry: ele.industry }
               })
             ).map((ele, index) => {
-              console.log(ele)
               return (
                 <div className="col-md-6 col-lg-3 col-sm-12 mt-5" key={index}>
                   <CardDesignFour
@@ -194,7 +193,7 @@ function App() {
         </div>
         <h3
           className="text-center title"
-          style ={{marginTop: '5rem'}}
+          style={{ marginTop: '5rem' }}
         >
           Điều gì hấp dẫn ở Diligo Holdings đang chờ đón bạn
         </h3>
