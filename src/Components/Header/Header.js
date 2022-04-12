@@ -1,14 +1,20 @@
 import "./Header.css";
 import styles from "./Header.module.css";
 import CanvaMenu from "./CanvaMenu";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link,Redirect  } from "react-router-dom";
 import logo from "../../assets/image/logo.png";
-import { getToken, getName, removeUserSession } from "../../Utils/Common";
+import {
+  getToken,
+  getName,
+  getLink,
+  removeUserSession,
+} from "../../Utils/Common";
 function HeaderSeconds(props) {
   const token = getToken();
   const names = getName();
+  const link = getLink();
   const handleLogout = () => {
-    <Link to="/dang-nhap"/>
+    <Link to="/dang-nhap" />;
     removeUserSession();
   };
   return (
@@ -108,12 +114,12 @@ function HeaderSeconds(props) {
                           className={`${styles.toggleUser} overflow-hidden position-absolute top-100 end-0`}
                         >
                           <li>
-                            <a>Thông tin cá nhân</a>
+                            <Link  to={{ pathname:`http://localhost:15000/web`}} target="_blank">Ứng dụng</Link>
                           </li>
                           <li>
-                            <Link to="/"
-                              onClick={handleLogout}
-                            ><b>Đăng xuất</b></Link>  
+                            <Link to="/" onClick={handleLogout}>
+                              <b>Đăng xuất</b>
+                            </Link>
                           </li>
                         </ul>
                       </div>

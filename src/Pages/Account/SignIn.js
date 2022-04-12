@@ -1,12 +1,12 @@
 import React, { Component, useState } from "react";
-import {Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import "./Signin.css";
 import styles from "./signin.module.css";
 import logo from "../../assets/image/logo.png";
 import { Helmet } from "react-helmet";
 import axios from "axios";
-import {  setUserSession } from "../../Utils/Common";
+import { setUserSession } from "../../Utils/Common";
 
 export default function Signin(props) {
   const [db] = useState("hr_diligo");
@@ -14,19 +14,32 @@ export default function Signin(props) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
+  
+  const bodyFormData = new FormData();
+  bodyFormData.append('db', 'hr_diligo');
+  bodyFormData.append('login', login); 
+  bodyFormData.append('password', password); 
+  
   const handleLogin = () => {
     setError(null);
     setLoading(true);
 
     axios
-      .get("http://test.diligo.vn:15000/api/auth/token", {
-        params: { db: "hr_diligo", login: login, password: password },
+      .post("http://test.diligo.vn:15000/api/auth/token", bodyFormData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       })
       .then((response) => {
+        console.log(response);
         setLoading(false);
-        setUserSession(response.data.access_token, response.data.user,response.data.name);
-        props.history.push('/')
+        setUserSession(
+          response.data.access_token,
+          response.data.user,
+          response.data.name,
+          response.data.go_to_backend,
+        );
+        props.history.push("/");
       })
       .catch((error) => {
         setLoading(false);
@@ -41,6 +54,20 @@ export default function Signin(props) {
         }
       });
     // props.history.push('/')
+
+    
+    axios
+      .post("http://test.dilogo.vn:15000/web/login", {
+        params: {
+          "db": "hr_diligo",
+          "login": login,
+          "password": password
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        setLoading(false);
+      })
   };
 
   return (
@@ -55,10 +82,12 @@ export default function Signin(props) {
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-12 d-flex flex-column">
-            <Link to="/" className={styles.logoa}><img className={styles.logo} src={logo} alt="Logo" /></Link>
+            <Link to="/" className={styles.logoa}>
+              <img className={styles.logo} src={logo} alt="Logo" />
+            </Link>
             <h3 className={styles.title + " d-flex mb-5"}>Đăng nhập</h3>
             <div className="d-flex mb-5">
-              <form>
+              <form method="post">
                 <input type="hidden" value="hr_diligo" />
                 <input
                   type="text"
